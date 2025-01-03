@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjfxxkiddbmbt"]
+
+[ext_resource type="PackedScene" uid="uid://ci2r0fe1mbyt0" path="res://Scenes/generic_item.tscn" id="1_phi0d"]
+
+[node name="MainScene" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.423, 0, -0.255)
+size = Vector3(8.97869, 0.19, 1.51074)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27514, 0.325303, -0.890871)
+size = Vector3(1.57359, 0.840605, 0.402527)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.626604, 0.779338, 0, -0.779338, 0.626604, 0, 2.33, 1.257)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.945086, -0.0609434, -0.32109, 0.326822, 0.176233, 0.928509, 0, -0.98246, 0.186473, -3.78171, 3.43839, 0.268496)
+
+[node name="GenericItem" parent="." instance=ExtResource("1_phi0d")]
