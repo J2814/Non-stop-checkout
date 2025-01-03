@@ -1,11 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjfxxkiddbmbt"]
+[gd_scene load_steps=3 format=3 uid="uid://cjfxxkiddbmbt"]
 
 [ext_resource type="PackedScene" uid="uid://ci2r0fe1mbyt0" path="res://Scenes/generic_item.tscn" id="1_phi0d"]
+[ext_resource type="Script" path="res://_Scripts/Spawner.gd" id="2_u3jyf"]
 
 [node name="MainScene" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.423, 0, -0.255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.423, -0.28, -0.255)
 size = Vector3(8.97869, 0.19, 1.51074)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
@@ -19,3 +20,12 @@ transform = Transform3D(1, 0, 0, 0, 0.626604, 0.779338, 0, -0.779338, 0.626604, 
 transform = Transform3D(0.945086, -0.0609434, -0.32109, 0.326822, 0.176233, 0.928509, 0, -0.98246, 0.186473, -3.78171, 3.43839, 0.268496)
 
 [node name="GenericItem" parent="." instance=ExtResource("1_phi0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.914, 0, 0)
+
+[node name="Spawner" type="Node3D" parent="."]
+script = ExtResource("2_u3jyf")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+wait_time = 2.0
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

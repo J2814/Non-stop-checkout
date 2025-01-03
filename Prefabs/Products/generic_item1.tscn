@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3rb1icse15fb"]
+
+[ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_sukab"]
+[ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="2_43uf0"]
+[ext_resource type="Texture2D" uid="uid://drhknr3bmqciv" path="res://Art/Sprites/Couch Hostage.png" id="3_25wbv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
+size = Vector3(7.15555, 6.80081, 0.980469)
+
+[node name="GenericItem" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9143, 0.248339, 0)
+script = ExtResource("1_sukab")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_svf82")
+
+[node name="Item" type="CSGBox3D" parent="."]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
+
+[node name="Barcode" type="Node3D" parent="."]
+script = ExtResource("2_43uf0")
+
+[node name="Area3D" type="Area3D" parent="Barcode"]
+transform = Transform3D(-1.74846e-09, 0, -0.04, 0, 0.04, 0, 0.04, 0, -1.74846e-09, -0.196066, 0, 0.00724775)
+
+[node name="collisionshape" type="CollisionShape3D" parent="Barcode/Area3D"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, -0.0359346, 0.355543, 0.708687)
+shape = SubResource("BoxShape3D_fnang")
+
+[node name="Sprite3D" type="Sprite3D" parent="Barcode"]
+transform = Transform3D(-4.37114e-10, 0, -0.01, 0, 0.01, 0, 0.01, 0, -4.37114e-10, -0.196066, 0, 0.00724775)
+texture = ExtResource("3_25wbv")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="scanned" from="Barcode" to="." method="_on_barcode_scanned"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
