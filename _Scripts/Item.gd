@@ -12,6 +12,7 @@ var last_mouse_position : Vector2
 
 @onready var deathTimer: Timer = $DeathTimer
 
+@export var HELLO :float
 
 func _ready() -> void:
 	 
