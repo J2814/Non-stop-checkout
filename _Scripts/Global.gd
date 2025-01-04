@@ -15,10 +15,11 @@ var HandOccupied :bool
 
 @export var camera :Camera3D
 
-var Rotation_speed = 0.6
+var Rotation_speed = 0.4
 
 signal scan_barcode(pos :Vector3)
 signal take_item
+signal gameover
 
 func _init() -> void:
 	pass

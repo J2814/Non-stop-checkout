@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjfxxkiddbmbt"]
+[gd_scene load_steps=10 format=3 uid="uid://cjfxxkiddbmbt"]
 
 [ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_fdosp"]
 [ext_resource type="Script" path="res://_Scripts/Cam.gd" id="2_o81kw"]
@@ -10,6 +10,8 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awk8t"]
 size = Vector3(12.0845, 0.597168, 4.95584)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdfb5"]
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_fdosp")
@@ -41,9 +43,9 @@ transform = Transform3D(-0.689353, -0.684577, 0.236952, 0.351695, -0.0303012, 0.
 
 [node name="Spawner" type="Node3D" parent="."]
 script = ExtResource("2_u3jyf")
-spawn_point_x = -5.0
+spawn_point_x = -2.0
 spawn_point_y = 1.0
-spawn_point_z_range = Vector2(-0.7, 0.7)
+spawn_point_z_range = Vector2(-0.5, 0.3)
 
 [node name="Timer" type="Timer" parent="Spawner"]
 wait_time = 2.0
@@ -69,5 +71,13 @@ size = Vector3(0.260498, 0.862793, 0.400993)
 [node name="CSGBox3D2" type="CSGBox3D" parent="ScanGun"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.000513833, -0.00461929, 0.0412462)
 size = Vector3(0.488281, 0.300964, 0.754875)
+
+[node name="Border" type="CSGBox3D" parent="."]
+transform = Transform3D(1.715, 0, 0, 0, 1.715, 0, 0, 0, 1.715, 3.0335, -2.38419e-07, -0.190784)
+
+[node name="Area3D" type="Area3D" parent="Border"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Border/Area3D"]
+shape = SubResource("BoxShape3D_vdfb5")
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
