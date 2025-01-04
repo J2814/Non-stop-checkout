@@ -24,4 +24,5 @@ func _input(event):
 			
 			if result and result.collider == hitBox:
 				scanned.emit()
+				Global.scan_barcode.emit(result.position)
 				pass

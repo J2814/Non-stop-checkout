@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://w6pccvptfrfh"]
+[gd_scene load_steps=3 format=3 uid="uid://b1eyuc3fh4x3r"]
 
 [ext_resource type="Script" path="res://_Scripts/main_menu.gd" id="1_f42vm"]
 [ext_resource type="Texture2D" uid="uid://28d3gqvvwbw" path="res://Art/Sprites/test_menubg.jpg" id="1_h0gpu"]
 
 [node name="Main_menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +18,7 @@ script = ExtResource("1_f42vm")
 position = Vector2(576.43, 373)
 scale = Vector2(1.15114, 1.06411)
 texture = ExtResource("1_h0gpu")
+region_rect = Rect2(-10.4103, -0.282082, 999.692, 680.102)
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
@@ -91,6 +93,7 @@ mouse_default_cursor_shape = 2
 color = Color(0.329158, 0.329158, 0.329158, 1)
 
 [node name="Label" type="Label" parent="CloseGame"]
+layout_mode = 0
 offset_left = 74.0
 offset_top = 5.0
 offset_right = 3044.0

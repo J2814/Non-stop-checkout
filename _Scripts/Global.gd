@@ -9,15 +9,24 @@ var objscanned = 0
 
 @export var ScannedPosition :Vector3 = Vector3(3,0,0)
 
+
+
 var HandOccupied :bool
 
-var camera :Camera3D
+@export var camera :Camera3D
 
 var Rotation_speed = 0.6
+
+signal scan_barcode(pos :Vector3)
+signal take_item
 
 func _init() -> void:
 	pass
 
+func TryToAssignCamera():
+	if (get_tree().root.has_node("MainScene/Camera3D")):
+		camera = get_tree().root.get_node("MainScene/Camera3D")
+
 func _ready() -> void:
-	camera = get_tree().root.get_node("MainScene/Camera3D")
+	TryToAssignCamera()
 	pass

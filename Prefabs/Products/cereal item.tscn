@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ji6gcnrcgway"]
+
+[ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_l6rbo"]
+[ext_resource type="PackedScene" uid="uid://diwa4hiaalag6" path="res://Scenes/cereal.tscn" id="2_2a4ic"]
+[ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="2_ob2ua"]
+[ext_resource type="Texture2D" uid="uid://dc0gt0gtn88no" path="res://Art/Sprites/Operation Phonky Town.png" id="3_5857r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
+size = Vector3(0.124878, 0.887695, 0.669678)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
+size = Vector3(7.15555, 6.80081, 0.980469)
+
+[node name="cereal item" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_l6rbo")
+spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00164797, 0.444092, -0.000610348)
+shape = SubResource("BoxShape3D_svf82")
+
+[node name="cereal" parent="." instance=ExtResource("2_2a4ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+
+[node name="Barcode" type="Node3D" parent="."]
+transform = Transform3D(-3.93403e-09, 0, 0.115, 0, 0.09, 0, -0.09, 0, -5.02681e-09, -0.001, 0.0183818, 0.106613)
+script = ExtResource("2_ob2ua")
+
+[node name="Area3D" type="Area3D" parent="Barcode"]
+transform = Transform3D(-1.74846e-09, 0, -0.04, 0, 0.04, 0, 0.04, 0, -1.74846e-09, -0.196066, 0, 0.00724775)
+
+[node name="collisionshape" type="CollisionShape3D" parent="Barcode/Area3D"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, -0.0359346, 0.355543, 0.708687)
+shape = SubResource("BoxShape3D_fnang")
+
+[node name="Sprite3D" type="Sprite3D" parent="Barcode"]
+transform = Transform3D(-2.18557e-10, 0, -0.005, 0, 0.005, 0, 0.005, 0, -2.18557e-10, -0.196066, 0, 0.00724775)
+texture = ExtResource("3_5857r")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="scanned" from="Barcode" to="." method="_on_barcode_scanned"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

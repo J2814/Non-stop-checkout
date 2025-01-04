@@ -17,24 +17,47 @@ var last_mouse_position : Vector2
 
 @onready var deathTimer: Timer = $DeathTimer
 
-@export var HELLO :float
+@export var spawn_rotations : Array[Vector3]
+
+var isGrounded :bool = false
 
 func _ready() -> void:
-	 
+	RandomizeRotation()
+	
 	pass
 
-func _process(_delta: float):
-	
+func _physics_process(delta: float) -> void:
 	if current_state == itemState.NotScanned:
-		MoveOnConveyorBelt(_delta)
-	
+		if (!isGrounded):
+			GoToGround(delta)
+
+
+func _process(_delta: float):
+	if current_state == itemState.NotScanned:
+		if (isGrounded):
+			MoveOnConveyorBelt(_delta)
+
+
+
 	if current_state == itemState.InHand:
 		RotateInHand(_delta)
 	
 
+func RandomizeRotation():
+	if (spawn_rotations.size() > 0):
+		
+		rotation_degrees = spawn_rotations[randi_range(0, spawn_rotations.size() - 1)]
+	
+	rotate_y(randf_range(deg_to_rad(0), deg_to_rad(360)))
+	
+	
+
 func MoveOnConveyorBelt(delta: float):
 	position.x += (Global.CurrentSpeed + Global.diff/2) * delta
-	
+
+func GoToGround(delta: float):
+	position.y -= 10 * delta
+
 
 func RotateInHand(deltaTime):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -57,6 +80,7 @@ func ChangeState(newstate: itemState):
 	current_state = newstate
 	
 	if newstate == itemState.InHand:
+		Global.take_item.emit()
 		Global.HandOccupied = true
 	
 	if newstate == itemState.Scanned:
@@ -72,9 +96,10 @@ func MoveToInHand():
 
 func RemoveFromHand():
 	ChangeState(itemState.Scanned)
-	AudioManager.play_beep()
+	
 	Global.objscanneddelt +=1
 	Global.objscanned +=1
+	
 	var tween = create_tween()
 	tween.tween_property(self, "position", Global.ScannedPosition, 0.15)
 	tween.tween_property(self, "scale", 0.001 * Vector3(1,1,1), 0.3)
@@ -110,11 +135,15 @@ func TakeItem(event):
 
 
 func _on_barcode_scanned() -> void:
-	
-	#send a signal about how much money this item costs to cash register
-	#also play sound i guess?
+	AudioManager.play_beep()
 	RemoveFromHand()
 
 
 func _on_death_timer_timeout() -> void:
 	self.queue_free()
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.get_parent().name == "Ground":
+		isGrounded = true
+		pass

@@ -2,6 +2,7 @@ extends Node3D
 @onready var MenuLayer = get_node("/root/MainScene/Menu/MenuLayer")
 @onready var BGM = get_node("/root/AudioManager/Ambient/BackgroundMusic")
 func _ready() -> void:
+	Global.TryToAssignCamera()
 	MenuLayer.visible = false
 	BGM.play()
 

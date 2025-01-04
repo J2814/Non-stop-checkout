@@ -3,6 +3,7 @@ extends Control
 @onready var menu_music = get_node("/root/AudioManager/Ambient/MainMenuMusic")
 func _ready() -> void:
 	menu_music.play()
+	pass
 
 
 func _on_close_game_pressed() -> void:

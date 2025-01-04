@@ -4,13 +4,18 @@ var item_scenes: Array = []
 
 @onready var timer :Timer = $Timer
 var allowSpawn: bool = false
-var timerstages = [2.0, 1.5, 1.0, 0.5]
+@export var timerstages = [2.0, 1.5, 1.0, 0.5]
+@export var spawn_point_x :float
+@export var spawn_point_y :float
+@export var spawn_point_z_range :Vector2
+
 func _init():
 	PopulateItemArray()
 	
 	
 
 func _ready() -> void:
+	spawn_random_object()
 	StartSpawnning()
 
 func StartSpawnning():
@@ -40,7 +45,7 @@ func spawn_random_object():
 	if scene:
 		var instance = scene.instantiate()
 		add_child(instance)
-		instance.global_position = Vector3(-5, 0, randf_range(-1, 1))
+		instance.global_position = Vector3(spawn_point_x, spawn_point_y, randf_range(spawn_point_z_range.x, spawn_point_z_range.y))
 		
 func difficulty():
 	var objectcoeff = Global.objscanneddelt/5
@@ -55,7 +60,7 @@ func difficulty():
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
 		spawn_random_object() 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	difficulty()
 
 func _on_timer_timeout() -> void:

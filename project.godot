@@ -24,6 +24,10 @@ AudioManager="*res://Scenes/audio_manager.tscn"
 
 movie_writer/movie_file="D:/Godot stuff/GODOT 4.3/Non-stop-checkout/recs/movie.avi"
 
+[filesystem]
+
+import/blender/enabled.web=true
+
 [input]
 
 ESC={
