@@ -1,12 +1,17 @@
 extends Node3D
 
+
 var price :float = 0.99;
+
+var objscanned = 1;
 
 enum itemState {InHand, Scanned, NotScanned}
 
 var current_state = itemState.NotScanned
 
 var last_mouse_position : Vector2
+
+@onready var camera = get_node("/root/MainScene/Camera3D")
 
 @onready var hitBox: Area3D = $Area3D
 
@@ -28,7 +33,7 @@ func _process(_delta: float):
 	
 
 func MoveOnConveyorBelt(delta: float):
-	position.x += Global.CurrentSpeed * delta
+	position.x += (Global.CurrentSpeed + Global.diff/2) * delta
 	
 
 func RotateInHand(deltaTime):
@@ -67,11 +72,13 @@ func MoveToInHand():
 
 func RemoveFromHand():
 	ChangeState(itemState.Scanned)
+	AudioManager.play_beep()
+	Global.objscanneddelt +=1
+	Global.objscanned +=1
 	var tween = create_tween()
 	tween.tween_property(self, "position", Global.ScannedPosition, 0.15)
 	tween.tween_property(self, "scale", 0.001 * Vector3(1,1,1), 0.3)
 	deathTimer.start()
-	
 
 func _input(event):
 	

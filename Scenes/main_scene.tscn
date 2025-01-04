@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjfxxkiddbmbt"]
+[gd_scene load_steps=7 format=3 uid="uid://cjfxxkiddbmbt"]
 
+[ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_fdosp"]
 [ext_resource type="PackedScene" uid="uid://ci2r0fe1mbyt0" path="res://Scenes/generic_item.tscn" id="1_phi0d"]
 [ext_resource type="Script" path="res://_Scripts/Spawner.gd" id="2_u3jyf"]
+[ext_resource type="PackedScene" uid="uid://dof6lthqlyn0q" path="res://Scenes/audio_manager.tscn" id="3_068bj"]
+[ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_74wqr"]
+[ext_resource type="PackedScene" uid="uid://bueoqibuftxu" path="res://Scenes/menu.tscn" id="6_e1j1i"]
 
 [node name="MainScene" type="Node3D"]
+script = ExtResource("1_fdosp")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.423, -0.28, -0.255)
@@ -27,5 +32,13 @@ script = ExtResource("2_u3jyf")
 
 [node name="Timer" type="Timer" parent="Spawner"]
 wait_time = 2.0
+
+[node name="AudioManager" parent="." instance=ExtResource("3_068bj")]
+
+[node name="PauseNode" type="Node" parent="."]
+process_mode = 2
+script = ExtResource("5_74wqr")
+
+[node name="Menu" parent="." instance=ExtResource("6_e1j1i")]
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

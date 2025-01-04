@@ -1,6 +1,8 @@
 extends Node
-
-
+var objectcoeff = objscanneddelt
+var objscanneddelt :int = 0
+var objscanned = 0
+@export var diff = 0
 @export var CurrentSpeed :float = 2
 
 @export var InHandPosition :Vector3 = Vector3(0,1.5,0.5)

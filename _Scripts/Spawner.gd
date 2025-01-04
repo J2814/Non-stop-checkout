@@ -3,9 +3,8 @@ extends Node3D
 var item_scenes: Array = []
 
 @onready var timer :Timer = $Timer
-
 var allowSpawn: bool = false
-
+var timerstages = [2.0, 1.5, 1.0, 0.5]
 func _init():
 	PopulateItemArray()
 	
@@ -16,6 +15,7 @@ func _ready() -> void:
 
 func StartSpawnning():
 	allowSpawn = true
+
 	timer.start()
 
 func PopulateItemArray():
@@ -41,14 +41,27 @@ func spawn_random_object():
 		var instance = scene.instantiate()
 		add_child(instance)
 		instance.global_position = Vector3(-5, 0, randf_range(-1, 1))
-
+		
+func difficulty():
+	var objectcoeff = Global.objscanneddelt/5
+	#print("шзнх")
+	if objectcoeff == 1:
+		Global.diff +=1
+		Global.diff = clamp(Global.diff, 0, 3)
+		objectcoeff = 0
+		Global.objscanneddelt = 0
+		print(objectcoeff)
+		
 func _input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
 		spawn_random_object() 
-
+func _process(delta: float) -> void:
+	difficulty()
 
 func _on_timer_timeout() -> void:
 	if allowSpawn:
 		spawn_random_object()
+		timer.wait_time = timerstages[Global.diff]
 		timer.start()
-	
+	#print('s' ,Global.objscanneddelt)
+	#print('d',Global.diff)
