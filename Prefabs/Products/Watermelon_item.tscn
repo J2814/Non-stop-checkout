@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="4_n6dvr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p4w3f"]
-radius = 0.26857
-height = 0.660661
+radius = 0.232636
+height = 0.595148
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 0.980469)
@@ -23,7 +23,7 @@ spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(
 transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.147637, 0.989042, 0, -0.989042, 0.147637, 0.0307006, 0.403353, -0.017244)
+transform = Transform3D(1, 0, 0, 0, 0.147637, 0.989042, 0, -0.989042, 0.147637, 0.0307006, 0.370236, -0.0349611)
 shape = SubResource("CapsuleShape3D_p4w3f")
 
 [node name="Barcode" type="Node3D" parent="."]
