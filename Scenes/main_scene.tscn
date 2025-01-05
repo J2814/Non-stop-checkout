@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjfxxkiddbmbt"]
+[gd_scene load_steps=18 format=3 uid="uid://cjfxxkiddbmbt"]
 
 [ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_fdosp"]
 [ext_resource type="Shader" path="res://Art/RetroPost-Processing.gdshader" id="1_ou2u1"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c8hp58uty72l5" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
 [ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="8_u0rvw"]
 [ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="9_eselk"]
+[ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_khucr"]
+[ext_resource type="Script" path="res://_Scripts/pc.gd" id="11_sxskt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5rx7h"]
 shader = ExtResource("1_ou2u1")
@@ -120,6 +122,13 @@ script = ExtResource("5_74wqr")
 
 [node name="GameoverMenu" parent="ViewPort/MainScene" instance=ExtResource("7_y3t0d")]
 
+[node name="PC" parent="ViewPort/MainScene" instance=ExtResource("10_khucr")]
+transform = Transform3D(-0.275436, 0, -0.961319, 0, 1, 0, 0.961319, 0, -0.275436, 0.548611, -1.13755, -0.564297)
+script = ExtResource("11_sxskt")
+
+[node name="Screen" parent="ViewPort/MainScene/PC" instance=ExtResource("8_u0rvw")]
+transform = Transform3D(-0.0713263, -0.573909, 1.07366, 1.23833e-06, 1.0755, 0.574893, -1.21743, 0.0336251, -0.062903, -0.697051, 1.40167, -1.02473)
+
 [node name="ScanGun" type="Node3D" parent="ViewPort/MainScene"]
 transform = Transform3D(3.01114, 0, 0.289197, 0, 3.025, 0, -0.289197, 0, 3.01114, 0.408571, 0.81012, 1.47989)
 script = ExtResource("7_3stbu")
@@ -138,9 +147,6 @@ size = Vector3(0.260498, 0.862793, 0.400993)
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.000513833, -0.00461929, 0.0412462)
 visible = false
 size = Vector3(0.488281, 0.300964, 0.754875)
-
-[node name="Screen" parent="ViewPort/MainScene" instance=ExtResource("8_u0rvw")]
-transform = Transform3D(0.979987, 0.10249, -0.170654, -0.0221973, 0.908192, 0.417965, 0.197824, -0.405811, 0.892291, 1.18241, 0.213354, -0.824631)
 
 [node name="Border" type="Node3D" parent="ViewPort/MainScene"]
 transform = Transform3D(1.715, 0, 0, 0, 1.715, 0, 0, 0, 1.715, 3, 0, 0)
