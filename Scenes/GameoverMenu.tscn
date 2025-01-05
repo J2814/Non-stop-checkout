@@ -1,19 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2f3n7ryypk83"]
+[gd_scene load_steps=2 format=3 uid="uid://c8hp58uty72l5"]
 
-[ext_resource type="Script" path="res://_Scripts/menu.gd" id="1_yn3l5"]
+[ext_resource type="Script" path="res://_Scripts/GameoverMenu.gd" id="1_166h0"]
 
-[node name="Menu" type="Control"]
-process_mode = 3
+[node name="GameoverMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yn3l5")
+script = ExtResource("1_166h0")
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="menupanel" type="Panel" parent="MenuLayer"]
 anchors_preset = 15
@@ -23,22 +21,40 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Continue" type="Button" parent="MenuLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -161.0
-offset_top = -147.0
-offset_right = -1.0
-offset_bottom = -112.0
+[node name="SurvivedTimeLabel" type="Label" parent="MenuLayer"]
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.136
+anchor_right = 0.605
+anchor_bottom = 0.189
+offset_left = -69.8
+offset_top = -0.128006
+offset_right = 3507.04
+offset_bottom = 307.528
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 250
+text = "You survived for: 10"
+horizontal_alignment = 1
+
+[node name="PlayAgain" type="Button" parent="MenuLayer"]
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.273
+anchor_right = 0.65
+anchor_bottom = 0.418
+offset_left = 0.279968
+offset_top = 0.095993
+offset_right = -174.928
+offset_bottom = -46.864
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="MenuLayer/Continue"]
+[node name="Label" type="Label" parent="MenuLayer/PlayAgain"]
 layout_mode = 0
 offset_left = 25.5
 offset_top = -0.5
@@ -46,7 +62,7 @@ offset_right = 1124.5
 offset_bottom = 341.5
 scale = Vector2(0.1, 0.1)
 theme_override_font_sizes/font_size = 250
-text = "Continue"
+text = "Play again"
 metadata/_edit_use_anchors_ = true
 
 [node name="Exit" type="Button" parent="MenuLayer"]
@@ -73,5 +89,5 @@ theme_override_font_sizes/font_size = 500
 text = "Exit"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="MenuLayer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MenuLayer/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="MenuLayer/Exit" to="." method="_on_exit_pressed"]

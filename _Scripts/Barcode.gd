@@ -2,12 +2,25 @@ extends Node3D
 @onready var hitBox: Area3D = $Area3D
 signal scanned
 
+var animate :bool = false
+
+var defaultScale
+
 func _ready() -> void:
+	defaultScale = self.scale
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
-	pass
 	
+	pass
+
+func AnimateBarcode():
+	
+	var tween = create_tween()
+	tween.tween_property(self, "scale", defaultScale * 1.1, 0.125)
+	tween.tween_property(self, "scale", defaultScale, 0.125)
+
+
 func _input(event):
 	
 	if !Global.HandOccupied:
@@ -26,3 +39,9 @@ func _input(event):
 				scanned.emit()
 				Global.scan_barcode.emit(result.position)
 				pass
+
+
+func _on_barcode_anim_timer_timeout() -> void:
+	if animate:
+		AnimateBarcode()
+	pass # Replace with function body.

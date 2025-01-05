@@ -23,5 +23,5 @@ func GetReady():
 func Scan(pos :Vector3):
 	var tween = create_tween()
 	tween.tween_property(self, "position", pos, 0.1)
-	tween.tween_property(self, "position", offscreen_pos, 0.4)
+	tween.tween_property(self, "position", offscreen_pos, 0.2)
 	pass

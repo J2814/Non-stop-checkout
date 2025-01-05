@@ -5,16 +5,18 @@ signal score_updated
 signal bad_item(name :String, price :float)
 signal good_item(name :String, price :float)
 
-@export var current_score :float
 
+@export var current_score :float = 0
 
-	
+var elapsed_time :float 
+
 
 func add_to_score(amount :float):
 	current_score += amount
 	
 	if current_score < 0:
-		Global.gameover.emit
+		print("fuck")
+		Global.gameover.emit()
 		
 	
 	score_updated.emit()

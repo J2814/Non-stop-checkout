@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://xniatleo40ys"]
+[gd_scene load_steps=10 format=3 uid="uid://xniatleo40ys"]
 
 [ext_resource type="Script" path="res://_Scripts/audio_manager.gd" id="1_vogan"]
 [ext_resource type="AudioStream" uid="uid://cl6c8vmw6t2kl" path="res://Art/Audio/Music/It-Came-Upon-a-Midnight-Clear-chosic.com_.mp3" id="2_o2nny"]
 [ext_resource type="AudioStream" uid="uid://43dt8bs86bfb" path="res://Art/Audio/Sounds/scan_sound.mp3" id="3_nbsgv"]
 [ext_resource type="AudioStream" uid="uid://bdqfyihed1nty" path="res://Art/Audio/Sounds/ambient.mp3" id="3_noq4o"]
-[ext_resource type="AudioStream" uid="uid://beegkjdeed3pu" path="res://Art/Audio/Sounds/buttonhover.wav" id="5_drwxh"]
-[ext_resource type="AudioStream" uid="uid://dauqkn077bpcy" path="res://Art/Audio/Sounds/buttonclick.wav" id="6_1dq5g"]
+[ext_resource type="AudioStream" uid="uid://beegkjdeed3pu" path="res://Art/Audio/Sounds/click.wav" id="5_drwxh"]
+[ext_resource type="AudioStream" uid="uid://dauqkn077bpcy" path="res://Art/Audio/Sounds/hover.wav" id="6_1dq5g"]
+[ext_resource type="AudioStream" uid="uid://bbc5koliwjbnw" path="res://Art/Audio/Sounds/missed2.mp3" id="7_38rbx"]
+[ext_resource type="AudioStream" uid="uid://dtgmtpmhkf74p" path="res://Art/Audio/Sounds/Loose.wav" id="8_i7x48"]
+[ext_resource type="AudioStream" uid="uid://bsufiavh1gxcl" path="res://Art/Audio/Sounds/take.wav" id="9_6oa0p"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
@@ -27,7 +30,19 @@ stream = ExtResource("3_noq4o")
 stream = ExtResource("3_nbsgv")
 
 [node name="Hover" type="AudioStreamPlayer" parent="InteractionSounds"]
-stream = ExtResource("5_drwxh")
+stream = ExtResource("6_1dq5g")
 
 [node name="Click" type="AudioStreamPlayer" parent="InteractionSounds"]
-stream = ExtResource("6_1dq5g")
+stream = ExtResource("5_drwxh")
+
+[node name="MissedItem" type="AudioStreamPlayer" parent="InteractionSounds"]
+stream = ExtResource("7_38rbx")
+volume_db = -2.364
+
+[node name="Loose" type="AudioStreamPlayer" parent="InteractionSounds"]
+stream = ExtResource("8_i7x48")
+volume_db = -8.667
+
+[node name="TakeItem" type="AudioStreamPlayer" parent="InteractionSounds"]
+stream = ExtResource("9_6oa0p")
+volume_db = -5.257

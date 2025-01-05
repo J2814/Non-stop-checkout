@@ -7,7 +7,7 @@ var objscanned = 0
 
 @export var InHandPosition :Vector3 = Vector3(0,1.5,0.5)
 
-@export var ScannedPosition :Vector3 = Vector3(3,0,0)
+@export var ScannedPosition :Vector3 = Vector3(6,0,0)
 
 
 

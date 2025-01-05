@@ -28,29 +28,43 @@ var isGrounded :bool = false
 
 var scored :bool = false
 
+var gameover :bool = false
+
 func _ready() -> void:
 	RandomizeRotation()
-	
+	Global.gameover.connect(Gameover)
 	pass
 
+func _exit_tree() -> void:
+	Global.gameover.disconnect(Gameover)
+
 func _physics_process(delta: float) -> void:
+	if gameover:
+		return
+	
 	if current_state == itemState.NotScanned:
+		$Barcode.animate = false
 		if (!isGrounded):
 			GoToGround(delta)
-	
-	
-	
 
+func Gameover():
+	gameover = true
 
 func _process(delta: float):
+	if gameover:
+		return
+	
 	if current_state == itemState.NotScanned:
+		$Barcode.animate = false
 		if (isGrounded):
 			MoveOnConveyorBelt(delta)
 	
 	if current_state == itemState.InHand:
+		$Barcode.animate = true
 		RotateInHand(delta)
 		ApplyInertia(delta)
 	
+
 
 func RandomizeRotation():
 	if (spawn_rotations.size() > 0):
@@ -118,14 +132,15 @@ func ChangeState(newstate: itemState):
 		Global.HandOccupied = true
 	
 	if newstate == itemState.Scanned:
-		
+		$Barcode.animate = false
 		Global.HandOccupied = false
 	
 	pass
 
 func MoveToInHand():
+	AudioManager.take_sound()
 	var tween = create_tween()
-	tween.tween_property(self, "position", Global.InHandPosition, 0.15)
+	tween.tween_property(self, "position", Global.camera.InHandPosition, 0.15)
 	
 	pass
 
@@ -194,6 +209,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent().name == "Border":
 		PrepareToDeath()
 		if !scored:
+			AudioManager.missed_sound()
 			ScoreManager.add_to_score(-price)
 			ScoreManager.bad_item.emit(item_name, price)
 			scored = true

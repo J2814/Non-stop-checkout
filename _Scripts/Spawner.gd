@@ -15,8 +15,16 @@ func _init():
 	
 
 func _ready() -> void:
+	Global.gameover.connect(StopSpawning)
 	spawn_random_object()
 	StartSpawnning()
+
+func _exit_tree() -> void:
+	Global.gameover.disconnect(StopSpawning)
+
+func StopSpawning():
+	allowSpawn = false
+	timer.paused = true
 
 func StartSpawnning():
 	allowSpawn = true
