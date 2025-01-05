@@ -63,7 +63,7 @@ func spawn_random_object():
 		#instance.global_position = Vector3(spawn_point_x, spawn_point_y, randf_range(spawn_point_z_range.x, spawn_point_z_range.y))
 		
 func difficulty():
-	var objectcoeff = Global.objscanneddelt/1
+	var objectcoeff = Global.objscanneddelt/10
 	#print("шзнх")
 	if objectcoeff == 1:
 		Global.diff +=1
