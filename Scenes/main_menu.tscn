@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://b1eyuc3fh4x3r"]
+[gd_scene load_steps=21 format=3 uid="uid://b1eyuc3fh4x3r"]
 
 [ext_resource type="Script" path="res://_Scripts/main_menu.gd" id="1_f42vm"]
+[ext_resource type="Shader" path="res://Art/RetroPost-Processing.gdshader" id="1_hhhnp"]
 [ext_resource type="Texture2D" uid="uid://mi834pr2v71q" path="res://Art/Sprites/фон начальный без кнопок 1.png" id="2_530nq"]
 [ext_resource type="Texture2D" uid="uid://4aj1ffji8o4t" path="res://Art/Sprites/кнопка стилл плей.png" id="3_tbhux"]
 [ext_resource type="Texture2D" uid="uid://bnujy25ptg14t" path="res://Art/Sprites/кнопка стилл эхит.png" id="4_d00m4"]
@@ -16,6 +17,15 @@
 [ext_resource type="Script" path="res://_Scripts/master_slider.gd" id="12_1iyyk"]
 [ext_resource type="Script" path="res://Scenes/music_slider.gd" id="13_r1yk2"]
 [ext_resource type="Script" path="res://Scenes/sfx_slider.gd" id="14_a1abm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7l0hb"]
+shader = ExtResource("1_hhhnp")
+shader_parameter/change_color_depth = true
+shader_parameter/target_color_depth = 3
+shader_parameter/dithering = true
+shader_parameter/scale_resolution = true
+shader_parameter/target_resolution_scale = 2
+shader_parameter/enable_recolor = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ormfq"]
 content_margin_left = 16.0
@@ -36,7 +46,21 @@ texture_margin_bottom = 35.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="Main_menu" type="Control"]
+[node name="SubViewportContainer" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_7l0hb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Main_menu" type="Control" parent="SubViewport"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -49,7 +73,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("1_f42vm")
 
-[node name="mainMenuBG" type="TextureRect" parent="."]
+[node name="mainMenuBG" type="TextureRect" parent="SubViewport/Main_menu"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -60,7 +84,7 @@ grow_vertical = 2
 texture = ExtResource("2_530nq")
 expand_mode = 1
 
-[node name="Play" type="TextureButton" parent="."]
+[node name="Play" type="TextureButton" parent="SubViewport/Main_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.58
@@ -73,7 +97,7 @@ texture_hover = ExtResource("5_1thdw")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="CloseGame" type="TextureButton" parent="."]
+[node name="CloseGame" type="TextureButton" parent="SubViewport/Main_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.13
@@ -86,7 +110,7 @@ texture_hover = ExtResource("6_vwoo3")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="SettingsButton" type="TextureButton" parent="."]
+[node name="SettingsButton" type="TextureButton" parent="SubViewport/Main_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.068
@@ -98,7 +122,7 @@ texture_hover = ExtResource("8_mrvsa")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="settings_menu" type="TextureRect" parent="SettingsButton"]
+[node name="settings_menu" type="TextureRect" parent="SubViewport/Main_menu/SettingsButton"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -114,7 +138,7 @@ mouse_filter = 0
 texture = ExtResource("9_8h5k2")
 script = ExtResource("10_4i7ho")
 
-[node name="settings_exit_button" type="TextureButton" parent="SettingsButton/settings_menu"]
+[node name="settings_exit_button" type="TextureButton" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.863
@@ -130,7 +154,7 @@ texture_normal = ExtResource("11_w3bgf")
 ignore_texture_size = true
 flip_h = true
 
-[node name="MasterSlider" type="HSlider" parent="SettingsButton/settings_menu"]
+[node name="MasterSlider" type="HSlider" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.058
@@ -153,7 +177,7 @@ step = 0.001
 value = 0.001
 script = ExtResource("12_1iyyk")
 
-[node name="MusicSlider" type="HSlider" parent="SettingsButton/settings_menu"]
+[node name="MusicSlider" type="HSlider" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.054
@@ -175,7 +199,7 @@ step = 0.001
 scrollable = false
 script = ExtResource("13_r1yk2")
 
-[node name="SFXSlider" type="HSlider" parent="SettingsButton/settings_menu"]
+[node name="SFXSlider" type="HSlider" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.056
@@ -197,10 +221,10 @@ step = 0.001
 scrollable = false
 script = ExtResource("14_a1abm")
 
-[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
-[connection signal="mouse_entered" from="CloseGame" to="." method="_on_close_game_mouse_entered"]
-[connection signal="pressed" from="CloseGame" to="." method="_on_close_game_pressed"]
-[connection signal="mouse_entered" from="SettingsButton" to="." method="_on_settings_button_mouse_entered"]
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="SettingsButton/settings_menu/settings_exit_button" to="." method="_on_settings_exit_button_pressed"]
+[connection signal="mouse_entered" from="SubViewport/Main_menu/Play" to="SubViewport/Main_menu" method="_on_play_mouse_entered"]
+[connection signal="pressed" from="SubViewport/Main_menu/Play" to="SubViewport/Main_menu" method="_on_play_pressed"]
+[connection signal="mouse_entered" from="SubViewport/Main_menu/CloseGame" to="SubViewport/Main_menu" method="_on_close_game_mouse_entered"]
+[connection signal="pressed" from="SubViewport/Main_menu/CloseGame" to="SubViewport/Main_menu" method="_on_close_game_pressed"]
+[connection signal="mouse_entered" from="SubViewport/Main_menu/SettingsButton" to="SubViewport/Main_menu" method="_on_settings_button_mouse_entered"]
+[connection signal="pressed" from="SubViewport/Main_menu/SettingsButton" to="SubViewport/Main_menu" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="SubViewport/Main_menu/SettingsButton/settings_menu/settings_exit_button" to="SubViewport/Main_menu" method="_on_settings_exit_button_pressed"]

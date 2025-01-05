@@ -25,8 +25,8 @@ func _init() -> void:
 	pass
 
 func TryToAssignCamera():
-	if (get_tree().root.has_node("MainScene/Camera3D")):
-		camera = get_tree().root.get_node("MainScene/Camera3D")
+	if (get_tree().root.has_node("Container/ViewPort/MainScene/Camera3D")):
+		camera = get_tree().root.get_node("Container/ViewPort/MainScene/Camera3D")
 
 func _ready() -> void:
 	TryToAssignCamera()

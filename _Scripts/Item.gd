@@ -14,7 +14,6 @@ var mouse_velocity: Vector2 = Vector2.ZERO
 var inertia_velocity: Vector2 = Vector2.ZERO
 var inertia_damping: float = 10 # Controls how quickly the inertia slows down
 
-@onready var camera = get_node("/root/MainScene/Camera3D")
 
 @onready var hitBox: Area3D = $Area3D
 
@@ -177,6 +176,9 @@ func _input(event):
 			TakeItem(event)
 
 func TakeItem(event):
+	if scored:
+		return
+	
 	var ray_origin = Global.camera.global_transform.origin  # Camera's position
 	var ray_direction = Global.camera.project_ray_normal(event.position)  # Ray direction from mouse position
 	

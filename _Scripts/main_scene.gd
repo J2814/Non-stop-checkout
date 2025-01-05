@@ -1,5 +1,5 @@
 extends Node3D
-@onready var MenuLayer = get_node("/root/MainScene/Menu/MenuLayer")
+@onready var MenuLayer = $Menu/MenuLayer
 @onready var BGM = get_node("/root/AudioManager/Ambient/BackgroundMusic")
 
 var elapsed_time :float = 0
