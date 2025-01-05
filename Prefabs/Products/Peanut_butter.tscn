@@ -7,7 +7,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_71xge"]
 height = 0.0791385
-radius = 0.0294367
+radius = 0.0258567
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 2.22357)

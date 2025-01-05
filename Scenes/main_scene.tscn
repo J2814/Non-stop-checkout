@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cjfxxkiddbmbt"]
+[gd_scene load_steps=19 format=3 uid="uid://cjfxxkiddbmbt"]
 
 [ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_fdosp"]
 [ext_resource type="Shader" path="res://Art/RetroPost-Processing.gdshader" id="1_ou2u1"]
@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="2_ulyct"]
 [ext_resource type="PackedScene" uid="uid://xniatleo40ys" path="res://Scenes/audio_manager.tscn" id="3_068bj"]
 [ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_3stbu"]
-[ext_resource type="PackedScene" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
+[ext_resource type="PackedScene" uid="uid://c8hp58uty72l5" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
 [ext_resource type="PackedScene" uid="uid://b38e7g5edn68f" path="res://Scenes/screen.tscn" id="8_u0rvw"]
 [ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="9_eselk"]
 [ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_khucr"]
 [ext_resource type="Script" path="res://_Scripts/pc.gd" id="11_sxskt"]
 [ext_resource type="PackedScene" path="res://Scenes/Shelf.tscn" id="13_jy2cj"]
+[ext_resource type="Texture2D" uid="uid://cqylo4aitiegw" path="res://Art/Sprites/Mouse_right_click.png" id="15_hwr5u"]
 [ext_resource type="Texture2D" uid="uid://bghx4d4jiqjkr" path="res://Art/Sprites/Mouse.png" id="15_qvip7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5rx7h"]
@@ -25,7 +26,7 @@ shader_parameter/target_resolution_scale = 2
 shader_parameter/enable_recolor = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awk8t"]
-size = Vector3(12.0845, 0.597168, 4.95584)
+size = Vector3(12.0845, 0.742615, 4.95584)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vdfb5"]
 
@@ -79,7 +80,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.6516
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00512189, 0.836924, 1.07463)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ViewPort/MainScene/Ground/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.313721, -0.201416, -0.389694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.313721, -0.128693, -0.389694)
 shape = SubResource("BoxShape3D_awk8t")
 
 [node name="Camera3D" type="Camera3D" parent="ViewPort/MainScene"]
@@ -113,6 +114,7 @@ spawn_point_z_range = Vector2(-0.5, 0.1)
 wait_time = 2.0
 
 [node name="Control" type="Control" parent="ViewPort/MainScene/Spawner"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -173,9 +175,19 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.000513833, -0.0046192
 visible = false
 size = Vector3(0.488281, 0.300964, 0.754875)
 
-[node name="Sprite3D" type="Sprite3D" parent="ViewPort/MainScene/ScanGun"]
-transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0.072523, 0, 0.00696528)
+[node name="MouseNotPressed" type="Sprite3D" parent="ViewPort/MainScene/ScanGun"]
+transform = Transform3D(0.324684, 0.0895477, -0.0464943, 0.0572369, -0.0344392, 0.333374, 0.083093, -0.326182, -0.0479627, 0.00701813, 0.0177291, 0.0302853)
+texture_filter = 0
 texture = ExtResource("15_qvip7")
+
+[node name="MousePressed" type="Sprite3D" parent="ViewPort/MainScene/ScanGun"]
+transform = Transform3D(0.324684, 0.0895477, -0.0464943, 0.0572369, -0.0344392, 0.333374, 0.083093, -0.326182, -0.0479627, 0.00701813, 0.0177291, 0.0302853)
+texture_filter = 0
+texture = ExtResource("15_hwr5u")
+
+[node name="Timer" type="Timer" parent="ViewPort/MainScene/ScanGun"]
+wait_time = 0.25
+autostart = true
 
 [node name="Border" type="Node3D" parent="ViewPort/MainScene"]
 transform = Transform3D(1.715, 0, 0, 0, 1.715, 0, 0, 0, 1.715, 3, 0, 0)
@@ -192,3 +204,4 @@ size = Vector3(32.1387, 1, 42.9996)
 
 [connection signal="timeout" from="ViewPort/MainScene/Camera3D/Timer" to="ViewPort/MainScene/Camera3D" method="_on_timer_timeout"]
 [connection signal="timeout" from="ViewPort/MainScene/Spawner/Timer" to="ViewPort/MainScene/Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="ViewPort/MainScene/ScanGun/Timer" to="ViewPort/MainScene/ScanGun" method="_on_timer_timeout"]

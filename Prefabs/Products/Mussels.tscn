@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bv30vs5w8spd1" path="res://Art/3dstuff/fbx/Midii.blend" id="4_mlqlc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
-size = Vector3(0.0534363, 0.0097351, 0.0284014)
+size = Vector3(0.0534363, 0.00731659, 0.0284014)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 0.826417)
@@ -16,16 +16,16 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("1_vp75h")
 item_name = "Mussels"
 price = 19.99
-spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
+spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000137318, 0.000961299, 0.000285622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00120926, 0)
 shape = SubResource("BoxShape3D_svf82")
 
 [node name="Barcode" type="Node3D" parent="."]
-transform = Transform3D(-1.96701e-09, 0, 0.045, 0.045, -1.96701e-09, 1.96701e-09, 1.96701e-09, 0.045, 8.59809e-17, -0.001, 0.00355888, 0.00342302)
+transform = Transform3D(-1.96701e-09, 0, 0.045, 0.045, -1.96701e-09, 1.96701e-09, 1.96701e-09, 0.045, 8.59809e-17, -0.001, 0.00327055, 0.00342302)
 script = ExtResource("2_8clf0")
 
 [node name="Area3D" type="Area3D" parent="Barcode"]

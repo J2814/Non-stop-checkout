@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="4_lq3cs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
-size = Vector3(0.0216827, 0.0608921, 0.0329971)
+size = Vector3(0.0127168, 0.0608921, 0.0329971)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 2.49365)
@@ -21,7 +21,7 @@ spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00104521, 0.00373742, -0.000484537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000786063, 0, 0)
 shape = SubResource("BoxShape3D_svf82")
 
 [node name="Barcode" type="Node3D" parent="."]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6hrqt51ond0v" path="res://Art/3dstuff/fbx/Fish.blend" id="4_f7dwx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
-size = Vector3(0.147186, 0.026001, 0.0804444)
+size = Vector3(0.049736, 0.0108795, 0.0227509)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 1.02857)
@@ -19,10 +19,9 @@ price = 12.49
 spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00116076, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000826731, 6.86669e-05, 0.000343317)
 shape = SubResource("BoxShape3D_svf82")
 
 [node name="Barcode" type="Node3D" parent="."]

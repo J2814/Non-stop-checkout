@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://7wr2n71r2jkw" path="res://Art/3dstuff/fbx/Beef.blend" id="4_vx0kp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wgyg1"]
-height = 0.0487082
-radius = 0.0187996
+height = 0.0497422
+radius = 0.016325
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 2.5759)

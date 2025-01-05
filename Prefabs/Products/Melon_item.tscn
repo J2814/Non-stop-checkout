@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://df8la5tdksv6g" path="res://Art/3dstuff/fbx/Melone.blend" id="4_85x2x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p4w3f"]
-radius = 0.216844
-height = 0.515251
+radius = 0.0561999
+height = 0.165914
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 0.980469)
@@ -20,10 +20,9 @@ price = 4.99
 spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.75, 0, 0, 0, 0.110728, 0.741781, 0, -0.741781, 0.110728, 0.0144051, 0.393356, -0.0268212)
+transform = Transform3D(1, 0, 0, 0, 0.147637, 0.989042, 0, -0.989042, 0.147637, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_p4w3f")
 
 [node name="Barcode" type="Node3D" parent="."]
