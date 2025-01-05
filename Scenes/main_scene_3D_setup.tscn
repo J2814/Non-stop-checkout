@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3ytcijidc801"]
+[gd_scene load_steps=14 format=3 uid="uid://3ytcijidc801"]
 
 [ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_yrf3p"]
 [ext_resource type="Script" path="res://_Scripts/Cam.gd" id="2_wsfdl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="8_asmoe"]
 [ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="9_0nro4"]
 [ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_3wobm"]
+[ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="11_i1fye"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awk8t"]
 size = Vector3(12.0845, 0.597168, 4.95584)
@@ -95,5 +96,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.894
 
 [node name="PC" parent="." instance=ExtResource("10_3wobm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.894328, -1.13241, -0.435398)
+
+[node name="Scaner" parent="." instance=ExtResource("11_i1fye")]
+transform = Transform3D(-0.999716, 0, -0.0238216, 0.00896842, 0.926424, -0.376376, 0.0220689, -0.376483, -0.926161, 0.857371, 0.969381, 1.7113)
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
