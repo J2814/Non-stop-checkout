@@ -1,5 +1,5 @@
 extends Node
-var objectcoeff = objscanneddelt%5
+var objectcoeff = objscanneddelt
 var objscanneddelt :int = 0
 var objscanned = 0
 @export var diff = 0

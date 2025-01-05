@@ -75,7 +75,7 @@ func RandomizeRotation():
 	
 
 func MoveOnConveyorBelt(delta: float):
-	position.x += (Global.CurrentSpeed + Global.diff/2) * delta
+	position.x += (Global.CurrentSpeed + Global.diff/5) * delta
 
 func GoToGround(delta: float):
 	position.y -= delta

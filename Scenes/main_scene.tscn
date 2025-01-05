@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="2_ulyct"]
 [ext_resource type="PackedScene" uid="uid://xniatleo40ys" path="res://Scenes/audio_manager.tscn" id="3_068bj"]
 [ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_74wqr"]
-[ext_resource type="PackedScene" uid="uid://ds0wtk4wt2lei" path="res://Prefabs/Products/cereal_item.tscn" id="5_nlw48"]
+[ext_resource type="PackedScene" path="res://Prefabs/Products/cereal_item.tscn" id="5_nlw48"]
 [ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_e1j1i"]
 [ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_3stbu"]
 [ext_resource type="PackedScene" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
-[ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="8_u0rvw"]
+[ext_resource type="PackedScene" uid="uid://b38e7g5edn68f" path="res://Scenes/screen.tscn" id="8_u0rvw"]
 [ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="9_eselk"]
 [ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_khucr"]
 [ext_resource type="Script" path="res://_Scripts/pc.gd" id="11_sxskt"]
@@ -42,7 +42,7 @@ stretch = true
 
 [node name="ViewPort" type="SubViewport" parent="."]
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="MainScene" type="Node3D" parent="ViewPort"]

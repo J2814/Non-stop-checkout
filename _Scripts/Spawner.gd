@@ -8,7 +8,7 @@ extends Node3D
 @onready var debugLabel :Label = $Control/Label
 @onready var timer :Timer = $Timer
 var allowSpawn: bool = false
-@export var timerstages = [2.0, 1.5, 1.0, 0.5]
+@export var timerstages = [3.0, 2.6, 2.4, 2.2, 2.0, 1.8, 1.6]
 @export var spawn_point_x :float
 @export var spawn_point_y :float
 @export var spawn_point_z_range :Vector2
@@ -23,6 +23,7 @@ func _ready() -> void:
 	Global.gameover.connect(StopSpawning)
 	spawn_random_object()
 	StartSpawnning()
+	Global.diff = 0
 
 func _exit_tree() -> void:
 	Global.gameover.disconnect(StopSpawning)
@@ -62,11 +63,11 @@ func spawn_random_object():
 		#instance.global_position = Vector3(spawn_point_x, spawn_point_y, randf_range(spawn_point_z_range.x, spawn_point_z_range.y))
 		
 func difficulty():
-	var objectcoeff = Global.objscanneddelt/5
+	var objectcoeff = Global.objscanneddelt/1
 	#print("шзнх")
 	if objectcoeff == 1:
 		Global.diff +=1
-		Global.diff = clamp(Global.diff, 0, 3)
+		Global.diff = clamp(Global.diff, 0, 6)
 		objectcoeff = 0
 		Global.objscanneddelt = 0
 		print(objectcoeff)
