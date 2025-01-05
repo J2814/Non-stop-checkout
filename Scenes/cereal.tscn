@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://diwa4hiaalag6"]
 
-[ext_resource type="PackedScene" uid="uid://chnehbt50q0tr" path="res://Art/3dstuff/Box2 (4).blend" id="1_3vg60"]
+[ext_resource type="PackedScene" uid="uid://cfrsgx0g5tfjf" path="res://Art/3dstuff/fbx/Box2.blend" id="1_3vg60"]
 
 [node name="cereal" instance=ExtResource("1_3vg60")]
