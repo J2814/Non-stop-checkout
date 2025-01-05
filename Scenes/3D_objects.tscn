@@ -1,0 +1,52 @@
+[gd_scene load_steps=13 format=3 uid="uid://clxeg5hcay5gb"]
+
+[ext_resource type="PackedScene" uid="uid://b20mkd64nlfxv" path="res://Art/3dstuff/fbx/WaterMelone.blend" id="1_mti22"]
+[ext_resource type="PackedScene" uid="uid://df8la5tdksv6g" path="res://Art/3dstuff/fbx/Melone.blend" id="2_6tgms"]
+[ext_resource type="PackedScene" uid="uid://6hrqt51ond0v" path="res://Art/3dstuff/fbx/Fish.blend" id="3_8wyar"]
+[ext_resource type="PackedScene" uid="uid://c8q21qxe8aig3" path="res://Art/3dstuff/fbx/Beams.blend" id="4_3mfjk"]
+[ext_resource type="PackedScene" uid="uid://7wr2n71r2jkw" path="res://Art/3dstuff/fbx/Beef.blend" id="5_fahfu"]
+[ext_resource type="PackedScene" uid="uid://cvl860q36vj04" path="res://Art/3dstuff/fbx/Buckwheat.blend" id="6_2h70t"]
+[ext_resource type="PackedScene" uid="uid://bv30vs5w8spd1" path="res://Art/3dstuff/fbx/Midii.blend" id="7_35j1y"]
+[ext_resource type="PackedScene" uid="uid://brk18oby7tdha" path="res://Art/3dstuff/fbx/Milk.blend" id="8_wi137"]
+[ext_resource type="PackedScene" uid="uid://tvdhuwawnmnl" path="res://Art/3dstuff/fbx/Nutella.blend" id="9_e7i5x"]
+[ext_resource type="PackedScene" uid="uid://bfqyvtm4vlqcm" path="res://Art/3dstuff/fbx/Peanut_butter.blend" id="10_3wig1"]
+[ext_resource type="PackedScene" uid="uid://dxqq2qya1fxvk" path="res://Art/3dstuff/fbx/Rise.blend" id="11_iiwfr"]
+[ext_resource type="PackedScene" uid="uid://dxgsbf2pa7r70" path="res://Art/3dstuff/fbx/Water.blend" id="12_2w0fj"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WaterMelone" parent="." instance=ExtResource("1_mti22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08192, 5.96046e-08, -0.03892)
+
+[node name="Melone" parent="." instance=ExtResource("2_6tgms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585643, 0, -0.0554432)
+
+[node name="Fish" parent="." instance=ExtResource("3_8wyar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00389278, 0, -0.121247)
+
+[node name="Beams" parent="." instance=ExtResource("4_3mfjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.226709, 0, 0)
+
+[node name="Beef" parent="." instance=ExtResource("5_fahfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.230652, 0, -0.137291)
+
+[node name="Buckwheat" parent="." instance=ExtResource("6_2h70t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443428, 0, -0.0102167)
+
+[node name="Midii" parent="." instance=ExtResource("7_35j1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00561991, 0, -0.00731356)
+
+[node name="Milk" parent="." instance=ExtResource("8_wi137")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.662798, 0.114658, -0.151269)
+
+[node name="Nutella" parent="." instance=ExtResource("9_e7i5x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92736, 0, -0.186414)
+
+[node name="Peanut_butter" parent="." instance=ExtResource("10_3wig1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923985, 0, -0.0283115)
+
+[node name="Rise2" parent="." instance=ExtResource("11_iiwfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443967, -0.00555825, -0.145448)
+
+[node name="Water" parent="." instance=ExtResource("12_2w0fj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.660244, 0.119598, 0.00507861)
