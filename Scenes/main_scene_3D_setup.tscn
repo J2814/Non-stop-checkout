@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3ytcijidc801"]
+[gd_scene load_steps=13 format=3 uid="uid://3ytcijidc801"]
 
 [ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_yrf3p"]
 [ext_resource type="Script" path="res://_Scripts/Cam.gd" id="2_wsfdl"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_5v2fg"]
 [ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_8xxe2"]
 [ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="8_asmoe"]
-[ext_resource type="PackedScene" uid="uid://cohk0crlao4kh" path="res://Art/3dstuff/fbx/Lenta.fbx" id="9_0nro4"]
+[ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="9_0nro4"]
+[ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_3wobm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awk8t"]
 size = Vector3(12.0845, 0.597168, 4.95584)
@@ -19,7 +20,7 @@ size = Vector3(12.0845, 0.597168, 4.95584)
 script = ExtResource("1_yrf3p")
 
 [node name="Ground" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.423, -0.28, -0.255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.423568, -0.294802, -0.245984)
 visible = false
 size = Vector3(8.97869, 0.19, 1.51074)
 
@@ -45,6 +46,7 @@ light_energy = 0.536
 transform = Transform3D(-0.689353, -0.684577, 0.236952, 0.351695, -0.0303012, 0.935624, -0.633327, 0.72831, 0.26165, 1.13562, 3.43839, 3.1234)
 
 [node name="Spawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0439258, 2.38419e-07, 0.0135546)
 script = ExtResource("3_05pe6")
 spawn_point_x = -5.0
 spawn_point_y = 1.0
@@ -86,9 +88,12 @@ transform = Transform3D(1.715, 0, 0, 0, 1.715, 0, 0, 0, 1.715, 3.0335, -2.38419e
 shape = SubResource("BoxShape3D_vdfb5")
 
 [node name="Screen" parent="." instance=ExtResource("8_asmoe")]
-transform = Transform3D(0.998368, -0.00187052, 0.0570858, 0.00155652, 0.999983, 0.00554488, -0.0570953, -0.00544697, 0.998354, 1.2292, 0.213354, -0.92695)
+transform = Transform3D(1.14152, 0, 0, 0, 1.17963, 0.510468, 0, -0.700271, 0.859897, 0.140973, 0.273127, -1.1087)
 
 [node name="Lenta" parent="." instance=ExtResource("9_0nro4")]
-transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, -1, 0, -4.37114e-08, -0.907726, -1.11286, -0.452818)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.894328, -1.13241, -0.435398)
+
+[node name="PC" parent="." instance=ExtResource("10_3wobm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.894328, -1.13241, -0.435398)
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

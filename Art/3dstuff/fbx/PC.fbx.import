@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xfjfqlhrp8cg"
-path="res://.godot/imported/Lenta.fbx-ecb54c6a234226998cb16cea53d3045f.scn"
+uid="uid://dqm6dtfgwjnju"
+path="res://.godot/imported/PC.fbx-3aad6db72c76e19f73bff356185187dc.scn"
 
 [deps]
 
-source_file="res://Art/3dstuff/fbx/Lenta.fbx"
-dest_files=["res://.godot/imported/Lenta.fbx-ecb54c6a234226998cb16cea53d3045f.scn"]
+source_file="res://Art/3dstuff/fbx/PC.fbx"
+dest_files=["res://.godot/imported/PC.fbx-3aad6db72c76e19f73bff356185187dc.scn"]
 
 [params]
 
