@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_74wqr"]
 [ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_e1j1i"]
 [ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_3stbu"]
-[ext_resource type="PackedScene" uid="uid://c8hp58uty72l5" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
+[ext_resource type="PackedScene" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
 [ext_resource type="PackedScene" uid="uid://b38e7g5edn68f" path="res://Scenes/screen.tscn" id="8_u0rvw"]
 [ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="9_eselk"]
 [ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_khucr"]

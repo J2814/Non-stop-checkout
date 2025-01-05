@@ -1,12 +1,11 @@
 extends Control
-@onready var music_slider = get_node("SettingsButton/settings_menu/MusicSlider")
-@onready var SFX_slider = get_node("SettingsButton/settings_menu/SFXSlider")
 @onready var master_slider = get_node("SettingsButton/settings_menu/MasterSlider")
 @onready var setting_window = get_node("SettingsButton/settings_menu")
 @onready var menu_music = get_node("/root/AudioManager/Ambient/MainMenuMusic")
 @onready var setting_exit = get_node("SettingsButton/settings_menu")
 func _ready() -> void:
 	menu_music.play()
+	setting_window.hide()
 	pass
 
 

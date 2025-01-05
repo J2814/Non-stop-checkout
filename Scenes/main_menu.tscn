@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cy3754ka4kfti" path="res://Art/Sprites/Rectangle 69.png" id="9_8h5k2"]
 [ext_resource type="Script" path="res://Scenes/settings_menu.gd" id="10_4i7ho"]
 [ext_resource type="Texture2D" uid="uid://cywhn0cf2oy22" path="res://Art/Sprites/ползунок.png" id="10_q8cq2"]
+[ext_resource type="Texture2D" uid="uid://de63gtras1tgl" path="res://Art/Sprites/menu_music_bg.png" id="10_s3p0f"]
 [ext_resource type="Texture2D" uid="uid://b38qxbreg473b" path="res://Art/Sprites/Frame 513186.png" id="11_7e4pl"]
-[ext_resource type="Texture2D" uid="uid://cee2te316lv8c" path="res://Art/Sprites/cross.png" id="11_w3bgf"]
 [ext_resource type="Script" path="res://_Scripts/master_slider.gd" id="12_1iyyk"]
-[ext_resource type="Script" path="res://Scenes/music_slider.gd" id="13_r1yk2"]
-[ext_resource type="Script" path="res://Scenes/sfx_slider.gd" id="14_a1abm"]
+[ext_resource type="Texture2D" uid="uid://beiae4n8lknaj" path="res://Art/Sprites/cross_fin.png" id="12_800pg"]
+[ext_resource type="Texture2D" uid="uid://bmckdhjltrupg" path="res://Art/Sprites/Music_label.png" id="17_mx466"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7l0hb"]
 shader = ExtResource("1_hhhnp")
@@ -123,48 +123,50 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="settings_menu" type="TextureRect" parent="SubViewport/Main_menu/SettingsButton"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.096
-anchor_top = -0.712
-anchor_right = 1.176
+anchor_top = -0.714
+anchor_right = 1.547
 anchor_bottom = 1.483
-offset_left = -0.793282
-offset_top = -0.449585
-offset_right = -0.0323486
-offset_bottom = -0.393616
+offset_left = -0.675968
+offset_top = -2.95872
+offset_right = 0.163757
+offset_bottom = -80.6362
 mouse_filter = 0
-texture = ExtResource("9_8h5k2")
+texture = ExtResource("10_s3p0f")
+expand_mode = 1
 script = ExtResource("10_4i7ho")
 
 [node name="settings_exit_button" type="TextureButton" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.863
-anchor_top = -0.021
+anchor_left = 0.93
+anchor_top = -0.057
 anchor_right = 1.01
 anchor_bottom = 0.173
-offset_left = 0.329956
-offset_top = -0.0509987
-offset_right = 1436.1
-offset_bottom = 989.563
+offset_left = -0.186035
+offset_top = 0.111999
+offset_right = 582.214
+offset_bottom = 526.392
 scale = Vector2(0.1, 0.1)
-texture_normal = ExtResource("11_w3bgf")
+texture_normal = ExtResource("12_800pg")
 ignore_texture_size = true
+stretch_mode = 0
 flip_h = true
 
 [node name="MasterSlider" type="HSlider" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.058
-anchor_top = 0.127
-anchor_right = 0.917
-anchor_bottom = 0.39
-offset_left = -0.220001
-offset_top = -0.263
-offset_right = -0.53009
-offset_bottom = 0.0899963
+anchor_left = 0.04
+anchor_top = 0.345
+anchor_right = 0.968
+anchor_bottom = 0.913
+offset_left = -1.13601
+offset_top = 27.984
+offset_right = -1.29602
+offset_bottom = 28.032
 theme_override_icons/grabber = ExtResource("10_q8cq2")
 theme_override_icons/grabber_highlight = ExtResource("10_q8cq2")
 theme_override_icons/grabber_disabled = ExtResource("10_q8cq2")
@@ -177,49 +179,18 @@ step = 0.001
 value = 0.001
 script = ExtResource("12_1iyyk")
 
-[node name="MusicSlider" type="HSlider" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
+[node name="SettingsLabel" type="TextureRect" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.054
-anchor_top = 0.395
-anchor_right = 0.913
-anchor_bottom = 0.659
-offset_left = 0.139999
-offset_top = 0.244995
-offset_right = -0.170044
-offset_bottom = 0.0289917
-theme_override_icons/grabber = ExtResource("10_q8cq2")
-theme_override_icons/grabber_highlight = ExtResource("10_q8cq2")
-theme_override_icons/grabber_disabled = ExtResource("10_q8cq2")
-theme_override_styles/slider = SubResource("StyleBoxTexture_ormfq")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_2n1db")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_2n1db")
-max_value = 1.0
-step = 0.001
-scrollable = false
-script = ExtResource("13_r1yk2")
-
-[node name="SFXSlider" type="HSlider" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.056
-anchor_top = 0.668
-anchor_right = 0.915
-anchor_bottom = 0.931
-offset_left = -0.0400009
-offset_top = -0.0920105
-offset_right = -0.350037
-offset_bottom = 0.260986
-theme_override_icons/grabber = ExtResource("10_q8cq2")
-theme_override_icons/grabber_highlight = ExtResource("10_q8cq2")
-theme_override_icons/grabber_disabled = ExtResource("10_q8cq2")
-theme_override_styles/slider = SubResource("StyleBoxTexture_ormfq")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_2n1db")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_2n1db")
-max_value = 1.0
-step = 0.001
-scrollable = false
-script = ExtResource("14_a1abm")
+anchor_left = 0.219
+anchor_top = 0.091
+anchor_right = 0.797
+anchor_bottom = 0.406
+offset_left = -0.391006
+offset_top = 0.0399933
+offset_right = 0.198975
+offset_bottom = 7.87999
+texture = ExtResource("17_mx466")
 
 [connection signal="mouse_entered" from="SubViewport/Main_menu/Play" to="SubViewport/Main_menu" method="_on_play_mouse_entered"]
 [connection signal="pressed" from="SubViewport/Main_menu/Play" to="SubViewport/Main_menu" method="_on_play_pressed"]
