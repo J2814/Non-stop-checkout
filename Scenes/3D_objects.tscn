@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://clxeg5hcay5gb"]
+[gd_scene load_steps=14 format=3 uid="uid://clxeg5hcay5gb"]
 
 [ext_resource type="PackedScene" uid="uid://b20mkd64nlfxv" path="res://Art/3dstuff/fbx/WaterMelone.blend" id="1_mti22"]
 [ext_resource type="PackedScene" uid="uid://df8la5tdksv6g" path="res://Art/3dstuff/fbx/Melone.blend" id="2_6tgms"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bfqyvtm4vlqcm" path="res://Art/3dstuff/fbx/Peanut_butter.blend" id="10_3wig1"]
 [ext_resource type="PackedScene" uid="uid://dxqq2qya1fxvk" path="res://Art/3dstuff/fbx/Rise.blend" id="11_iiwfr"]
 [ext_resource type="PackedScene" uid="uid://dxgsbf2pa7r70" path="res://Art/3dstuff/fbx/Water.blend" id="12_2w0fj"]
+[ext_resource type="PackedScene" uid="uid://cfrsgx0g5tfjf" path="res://Art/3dstuff/fbx/Box2.blend" id="13_up8bq"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -40,13 +41,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00561991, 0, -0.00731356)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.662798, 0.114658, -0.151269)
 
 [node name="Nutella" parent="." instance=ExtResource("9_e7i5x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92736, 0, -0.186414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92736, 0, -0.152896)
 
 [node name="Peanut_butter" parent="." instance=ExtResource("10_3wig1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923985, 0, -0.0283115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923985, 0, 0.00520417)
 
 [node name="Rise2" parent="." instance=ExtResource("11_iiwfr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443967, -0.00555825, -0.145448)
 
 [node name="Water" parent="." instance=ExtResource("12_2w0fj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.660244, 0.119598, 0.00507861)
+
+[node name="Box2" parent="." instance=ExtResource("13_up8bq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17499, 0, -0.0667615)
