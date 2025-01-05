@@ -12,56 +12,71 @@
 [node name="Main_menu" type="Control"]
 process_mode = 3
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -0.384033
-offset_bottom = -0.216064
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("1_f42vm")
 
 [node name="mainMenuBG" type="TextureRect" parent="."]
 show_behind_parent = true
 layout_mode = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_530nq")
+expand_mode = 1
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 1
-offset_left = 1073.0
-offset_top = 464.0
-offset_right = 1766.0
-offset_bottom = 893.0
+anchors_preset = -1
+anchor_left = 0.58
+anchor_top = 0.495
+anchor_right = 0.907
+anchor_bottom = 0.826
 texture_normal = ExtResource("3_tbhux")
 texture_pressed = ExtResource("3_tbhux")
 texture_hover = ExtResource("5_1thdw")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="CloseGame" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 718.0
-offset_right = 635.0
-offset_bottom = 949.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13
+anchor_top = 0.688
+anchor_right = 0.436
+anchor_bottom = 0.878
 texture_normal = ExtResource("4_d00m4")
 texture_pressed = ExtResource("4_d00m4")
 texture_hover = ExtResource("6_vwoo3")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="SettingsButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 372.0
-offset_right = 995.0
-offset_bottom = 614.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068
+anchor_top = 0.307
+anchor_right = 0.514
+anchor_bottom = 0.547
 texture_normal = ExtResource("7_rdt27")
 texture_hover = ExtResource("8_mrvsa")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="SettingsWindow" type="Window" parent="SettingsButton"]
 disable_3d = true
 title = "Settings"
 initial_position = 2
 size = Vector2i(600, 600)
+visible = false
 exclusive = true
 unresizable = true
 popup_window = true
