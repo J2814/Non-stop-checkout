@@ -59,6 +59,8 @@ script = ExtResource("5_74wqr")
 
 [node name="Menu" parent="." instance=ExtResource("6_e1j1i")]
 
+[node name="GameoverMenu" parent="." instance=ExtResource("6_e1j1i")]
+
 [node name="ScanGun" type="Node3D" parent="."]
 transform = Transform3D(3.01114, 0, 0.289197, 0, 3.025, 0, -0.289197, 0, 3.01114, 0.579, 1.249, 1.416)
 script = ExtResource("7_3stbu")
