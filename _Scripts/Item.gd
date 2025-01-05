@@ -131,9 +131,6 @@ func MoveToInHand():
 
 func RemoveFromHand():
 	ChangeState(itemState.Scanned)
-	
-	Global.objscanneddelt +=1
-	Global.objscanned +=1
 	if !scored:
 		ScoreManager.add_to_score(price)
 		scored = true
@@ -178,6 +175,8 @@ func TakeItem(event):
 
 func _on_barcode_scanned() -> void:
 	AudioManager.play_beep()
+	Global.objscanneddelt +=1
+	Global.objscanned +=1
 	RemoveFromHand()
 
 
@@ -195,5 +194,3 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		if !scored:
 			ScoreManager.add_to_score(-price)
 			scored = true
-
-	

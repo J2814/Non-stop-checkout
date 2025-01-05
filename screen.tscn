@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b38e7g5edn68f"]
+
+[ext_resource type="Script" path="res://screen.gd" id="1_ltt67"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vb5pp"]
+viewport_path = NodePath("MeshInstance3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gp44"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_vb5pp")
+metallic_specular = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ilhjj"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_2gp44")
+size = Vector2(1, 1)
+
+[node name="Screen" type="Node3D"]
+script = ExtResource("1_ltt67")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.998845, -0.0480261, -0.00144552, -1.87068e-10, 0.0300849, -0.999547, 0.0480479, 0.998393, 0.0300502, -0.0848626, 0.203228, -0.125386)
+mesh = SubResource("PlaneMesh_ilhjj")
+
+[node name="SubViewport" type="SubViewport" parent="MeshInstance3D"]
+
+[node name="ColorRect" type="ColorRect" parent="MeshInstance3D/SubViewport"]
+offset_right = 512.0
+offset_bottom = 512.0
+color = Color(0.000667567, 0.00694572, 0.0105249, 1)
+
+[node name="Label" type="Label" parent="MeshInstance3D/SubViewport"]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 3453.0
+offset_bottom = 1191.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 800
+text = "Fssdfsfsf"
