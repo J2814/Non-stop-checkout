@@ -57,7 +57,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false
-size = Vector2i(1920, 1080)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Main_menu" type="Control" parent="SubViewport"]
@@ -178,7 +178,6 @@ value = 0.001
 script = ExtResource("12_1iyyk")
 
 [node name="MusicSlider" type="HSlider" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.054
@@ -201,7 +200,6 @@ scrollable = false
 script = ExtResource("13_r1yk2")
 
 [node name="SFXSlider" type="HSlider" parent="SubViewport/Main_menu/SettingsButton/settings_menu"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.056
