@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cjfxxkiddbmbt"]
+[gd_scene load_steps=18 format=3 uid="uid://cjfxxkiddbmbt"]
 
 [ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_fdosp"]
 [ext_resource type="Shader" path="res://Art/RetroPost-Processing.gdshader" id="1_ou2u1"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" path="res://_Scripts/Spawner.gd" id="2_u3jyf"]
 [ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="2_ulyct"]
 [ext_resource type="PackedScene" uid="uid://xniatleo40ys" path="res://Scenes/audio_manager.tscn" id="3_068bj"]
-[ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_74wqr"]
-[ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_e1j1i"]
 [ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_3stbu"]
 [ext_resource type="PackedScene" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
 [ext_resource type="PackedScene" uid="uid://b38e7g5edn68f" path="res://Scenes/screen.tscn" id="8_u0rvw"]
@@ -128,12 +126,6 @@ scale = Vector2(2, 2)
 text = "ssdfa;slkdjfasdываааааааааf"
 
 [node name="AudioManager" parent="ViewPort/MainScene" instance=ExtResource("3_068bj")]
-
-[node name="PauseNode" type="Node" parent="ViewPort/MainScene"]
-process_mode = 2
-script = ExtResource("5_74wqr")
-
-[node name="Menu" parent="ViewPort/MainScene" instance=ExtResource("6_e1j1i")]
 
 [node name="GameoverMenu" parent="ViewPort/MainScene" instance=ExtResource("7_y3t0d")]
 
