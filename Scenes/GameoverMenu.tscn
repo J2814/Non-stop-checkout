@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8hp58uty72l5"]
+[gd_scene load_steps=5 format=3 uid="uid://cpv8c4y56fysw"]
 
 [ext_resource type="Script" path="res://_Scripts/GameoverMenu.gd" id="1_166h0"]
+[ext_resource type="Texture2D" uid="uid://b6nba0vu2ir55" path="res://Art/Sprites/gameover.png" id="2_7kavs"]
+[ext_resource type="Texture2D" uid="uid://dgybsnjlbenra" path="res://Art/Sprites/noGameover.png" id="3_5ne6u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4yiw"]
+bg_color = Color(0.421975, 0.620792, 0.80503, 1)
 
 [node name="GameoverMenu" type="Control"]
 layout_mode = 3
@@ -19,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w4yiw")
 metadata/_edit_use_anchors_ = true
 
 [node name="SurvivedTimeLabel" type="Label" parent="MenuLayer"]
@@ -88,6 +94,56 @@ scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 500
 text = "Exit"
 metadata/_edit_use_anchors_ = true
+
+[node name="GameoverTexture" type="TextureRect" parent="MenuLayer"]
+anchors_preset = -1
+anchor_left = -0.008
+anchor_top = 0.352
+anchor_right = 0.432
+anchor_bottom = 1.022
+offset_left = 0.216001
+offset_top = -0.0960236
+offset_right = 0.335999
+offset_bottom = -0.256042
+texture = ExtResource("2_7kavs")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="MenuLayer"]
+anchors_preset = -1
+anchor_left = 0.611
+anchor_top = 0.358
+anchor_right = 1.307
+anchor_bottom = 1.443
+offset_left = 0.127991
+offset_top = 0.0159912
+offset_right = 0.335938
+offset_bottom = -0.0640259
+texture = ExtResource("3_5ne6u")
+
+[node name="TextureRect2" type="TextureRect" parent="MenuLayer"]
+anchors_preset = -1
+anchor_left = -0.283
+anchor_top = -0.753
+anchor_right = 0.413
+anchor_bottom = 0.332
+offset_left = 0.0160217
+offset_top = -0.0559998
+offset_right = 0.223969
+offset_bottom = -0.136017
+texture = ExtResource("3_5ne6u")
+
+[node name="TextureRect3" type="TextureRect" parent="MenuLayer"]
+anchors_preset = -1
+anchor_left = 0.694
+anchor_top = -0.749
+anchor_right = 1.316
+anchor_bottom = 0.254
+offset_left = 555.512
+offset_top = -135.648
+offset_right = 640.968
+offset_bottom = -82.592
+rotation = 1.36824
+texture = ExtResource("3_5ne6u")
 
 [connection signal="pressed" from="MenuLayer/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="MenuLayer/Exit" to="." method="_on_exit_pressed"]
