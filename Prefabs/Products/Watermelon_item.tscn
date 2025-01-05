@@ -1,12 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://bib4xj7hrnckj"]
 
 [ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_386g1"]
-[ext_resource type="PackedScene" uid="uid://diwa4hiaalag6" path="res://Scenes/cereal.tscn" id="2_qyiql"]
 [ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="3_jn7h6"]
+[ext_resource type="PackedScene" uid="uid://b20mkd64nlfxv" path="res://Art/3dstuff/fbx/WaterMelone.blend" id="4_42ild"]
 [ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="4_n6dvr"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
-size = Vector3(0.124878, 0.887695, 0.669678)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p4w3f"]
+radius = 0.26857
+height = 0.660661
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 0.980469)
@@ -21,13 +22,11 @@ spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(
 transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00164797, 0.444092, -0.000610348)
-shape = SubResource("BoxShape3D_svf82")
-
-[node name="cereal" parent="." instance=ExtResource("2_qyiql")]
+transform = Transform3D(1, 0, 0, 0, 0.147637, 0.989042, 0, -0.989042, 0.147637, 0.0307006, 0.403353, -0.017244)
+shape = SubResource("CapsuleShape3D_p4w3f")
 
 [node name="Barcode" type="Node3D" parent="."]
-transform = Transform3D(-3.93403e-09, 0, 0.115, 0, 0.09, 0, -0.09, 0, -5.02681e-09, -0.001, 0.0183818, 0.106613)
+transform = Transform3D(-0.0899089, -0.00404972, 1.00434e-08, -0.00404972, 0.0899088, 4.52381e-10, -7.86805e-09, 0, -0.115, 0.0824647, 8.56146e-05, -0.00917695)
 script = ExtResource("3_jn7h6")
 
 [node name="Area3D" type="Area3D" parent="Barcode"]
@@ -47,6 +46,9 @@ autostart = true
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="WaterMelone" parent="." instance=ExtResource("4_42ild")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="scanned" from="Barcode" to="." method="_on_barcode_scanned"]

@@ -1,23 +1,23 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjfxxkiddbmbt"]
+[gd_scene load_steps=19 format=3 uid="uid://1k0677jo5js4"]
 
-[ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_fdosp"]
-[ext_resource type="Shader" path="res://Art/RetroPost-Processing.gdshader" id="1_ou2u1"]
-[ext_resource type="Script" path="res://_Scripts/Cam.gd" id="2_o81kw"]
-[ext_resource type="Script" path="res://_Scripts/Spawner.gd" id="2_u3jyf"]
-[ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="2_ulyct"]
-[ext_resource type="PackedScene" uid="uid://xniatleo40ys" path="res://Scenes/audio_manager.tscn" id="3_068bj"]
-[ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_74wqr"]
-[ext_resource type="PackedScene" uid="uid://ds0wtk4wt2lei" path="res://Prefabs/Products/cereal_item.tscn" id="5_nlw48"]
-[ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_e1j1i"]
-[ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_3stbu"]
-[ext_resource type="PackedScene" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
-[ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="8_u0rvw"]
-[ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="9_eselk"]
-[ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_khucr"]
-[ext_resource type="Script" path="res://_Scripts/pc.gd" id="11_sxskt"]
+[ext_resource type="Shader" path="res://Art/RetroPost-Processing.gdshader" id="1_vsfyu"]
+[ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="2_e72yv"]
+[ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="3_jeyxu"]
+[ext_resource type="Script" path="res://_Scripts/Cam.gd" id="4_xr1i1"]
+[ext_resource type="PackedScene" uid="uid://ds0wtk4wt2lei" path="res://Prefabs/Products/cereal_item.tscn" id="5_pbv3m"]
+[ext_resource type="Script" path="res://_Scripts/Spawner.gd" id="6_e6o2i"]
+[ext_resource type="PackedScene" uid="uid://xniatleo40ys" path="res://Scenes/audio_manager.tscn" id="7_1tuat"]
+[ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="8_4l0r7"]
+[ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="9_hxk5m"]
+[ext_resource type="PackedScene" path="res://Scenes/GameoverMenu.tscn" id="10_4rs5c"]
+[ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="11_o01pg"]
+[ext_resource type="Script" path="res://_Scripts/pc.gd" id="12_8xhrg"]
+[ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="13_0tpe4"]
+[ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="14_yy4kh"]
+[ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="15_ksycq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5rx7h"]
-shader = ExtResource("1_ou2u1")
+shader = ExtResource("1_vsfyu")
 shader_parameter/change_color_depth = true
 shader_parameter/target_color_depth = 3
 shader_parameter/dithering = true
@@ -46,7 +46,7 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="MainScene" type="Node3D" parent="ViewPort"]
-script = ExtResource("1_fdosp")
+script = ExtResource("2_e72yv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ViewPort/MainScene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.67358)
@@ -73,7 +73,7 @@ light_energy = 3.015
 spot_range = 8.841
 spot_angle = 99.36
 
-[node name="Ground" parent="ViewPort/MainScene" instance=ExtResource("2_ulyct")]
+[node name="Ground" parent="ViewPort/MainScene" instance=ExtResource("3_jeyxu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.651628, -1.11692, -0.260122)
 
 [node name="Area3D" type="Area3D" parent="ViewPort/MainScene/Ground"]
@@ -86,7 +86,7 @@ shape = SubResource("BoxShape3D_awk8t")
 [node name="Camera3D" type="Camera3D" parent="ViewPort/MainScene"]
 transform = Transform3D(1, 0, 0, 0, 0.692143, 0.72176, 0, -0.72176, 0.692143, 0, 1.36, 1.257)
 fov = 65.6
-script = ExtResource("2_o81kw")
+script = ExtResource("4_xr1i1")
 
 [node name="Timer" type="Timer" parent="ViewPort/MainScene/Camera3D"]
 one_shot = true
@@ -104,11 +104,11 @@ light_energy = 0.536
 transform = Transform3D(-0.689353, -0.684577, 0.236952, 0.351695, -0.0303012, 0.935624, -0.633327, 0.72831, 0.26165, 1.13562, 3.43839, 3.1234)
 visible = false
 
-[node name="cereal item" parent="ViewPort/MainScene" instance=ExtResource("5_nlw48")]
+[node name="cereal item" parent="ViewPort/MainScene" instance=ExtResource("5_pbv3m")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.710686, 0.37529, 0)
 
 [node name="Spawner" type="Node3D" parent="ViewPort/MainScene"]
-script = ExtResource("2_u3jyf")
+script = ExtResource("6_e6o2i")
 spawn_point_x = -1.0
 spawn_point_y = 1.0
 spawn_point_z_range = Vector2(-0.5, 0.1)
@@ -129,30 +129,30 @@ offset_bottom = 23.0
 scale = Vector2(2, 2)
 text = "ssdfa;slkdjfasdываааааааааf"
 
-[node name="AudioManager" parent="ViewPort/MainScene" instance=ExtResource("3_068bj")]
+[node name="AudioManager" parent="ViewPort/MainScene" instance=ExtResource("7_1tuat")]
 
 [node name="PauseNode" type="Node" parent="ViewPort/MainScene"]
 process_mode = 2
-script = ExtResource("5_74wqr")
+script = ExtResource("8_4l0r7")
 
-[node name="Menu" parent="ViewPort/MainScene" instance=ExtResource("6_e1j1i")]
+[node name="Menu" parent="ViewPort/MainScene" instance=ExtResource("9_hxk5m")]
 
-[node name="GameoverMenu" parent="ViewPort/MainScene" instance=ExtResource("7_y3t0d")]
+[node name="GameoverMenu" parent="ViewPort/MainScene" instance=ExtResource("10_4rs5c")]
 
-[node name="PC" parent="ViewPort/MainScene" instance=ExtResource("10_khucr")]
+[node name="PC" parent="ViewPort/MainScene" instance=ExtResource("11_o01pg")]
 transform = Transform3D(-0.275436, 0, -0.961319, 0, 1, 0, 0.961319, 0, -0.275436, 0.548611, -1.13755, -0.564297)
-script = ExtResource("11_sxskt")
+script = ExtResource("12_8xhrg")
 
-[node name="Screen" parent="ViewPort/MainScene/PC" instance=ExtResource("8_u0rvw")]
+[node name="Screen" parent="ViewPort/MainScene/PC" instance=ExtResource("13_0tpe4")]
 transform = Transform3D(-0.0713263, -0.573909, 1.07366, 1.23833e-06, 1.0755, 0.574893, -1.21743, 0.0336251, -0.062903, -0.697051, 1.40167, -1.02473)
 
 [node name="ScanGun" type="Node3D" parent="ViewPort/MainScene"]
 transform = Transform3D(3.01114, 0, 0.289197, 0, 3.025, 0, -0.289197, 0, 3.01114, 0.408571, 0.81012, 1.47989)
-script = ExtResource("7_3stbu")
+script = ExtResource("14_yy4kh")
 ready_to_scan_pos = Vector3(0.4, 0.81, 0.696)
 offscreen_pos = Vector3(1.25, 0.5, 2)
 
-[node name="Scaner" parent="ViewPort/MainScene/ScanGun" instance=ExtResource("9_eselk")]
+[node name="Scaner" parent="ViewPort/MainScene/ScanGun" instance=ExtResource("15_ksycq")]
 transform = Transform3D(-0.309547, -0.0172468, 0.0557535, -0.0347503, 0.296237, -0.101298, -0.0468862, -0.105695, -0.293011, 0.0121214, -0.0822752, 0.0841338)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ViewPort/MainScene/ScanGun"]
