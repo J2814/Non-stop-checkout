@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://3ytcijidc801"]
+
+[ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_yrf3p"]
+[ext_resource type="Script" path="res://_Scripts/Cam.gd" id="2_wsfdl"]
+[ext_resource type="Script" path="res://_Scripts/Spawner.gd" id="3_05pe6"]
+[ext_resource type="PackedScene" uid="uid://xniatleo40ys" path="res://Scenes/audio_manager.tscn" id="4_wa8mq"]
+[ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_w3etr"]
+[ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_5v2fg"]
+[ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_8xxe2"]
+[ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="8_asmoe"]
+[ext_resource type="PackedScene" uid="uid://cohk0crlao4kh" path="res://Art/3dstuff/fbx/Lenta.fbx" id="9_0nro4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awk8t"]
+size = Vector3(12.0845, 0.597168, 4.95584)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdfb5"]
+
+[node name="MainScene" type="Node3D"]
+script = ExtResource("1_yrf3p")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.423, -0.28, -0.255)
+visible = false
+size = Vector3(8.97869, 0.19, 1.51074)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27514, 0.325303, -0.890871)
+size = Vector3(1.57359, 0.840605, 0.402527)
+
+[node name="Area3D" type="Area3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.313721, -0.201416, -0.389694)
+shape = SubResource("BoxShape3D_awk8t")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.626604, 0.779338, 0, -0.779338, 0.626604, 0, 2.33, 1.257)
+script = ExtResource("2_wsfdl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.837203, -0.436976, -0.328851, 0.351695, -0.0303013, 0.935624, -0.41881, -0.898962, 0.128314, -2.3036, 3.43839, 2.95197)
+light_energy = 0.536
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.689353, -0.684577, 0.236952, 0.351695, -0.0303012, 0.935624, -0.633327, 0.72831, 0.26165, 1.13562, 3.43839, 3.1234)
+
+[node name="Spawner" type="Node3D" parent="."]
+script = ExtResource("3_05pe6")
+spawn_point_x = -5.0
+spawn_point_y = 1.0
+spawn_point_z_range = Vector2(-0.5, 0.3)
+
+[node name="Timer" type="Timer" parent="Spawner"]
+wait_time = 2.0
+
+[node name="AudioManager" parent="." instance=ExtResource("4_wa8mq")]
+
+[node name="PauseNode" type="Node" parent="."]
+process_mode = 2
+script = ExtResource("5_w3etr")
+
+[node name="Menu" parent="." instance=ExtResource("6_5v2fg")]
+
+[node name="GameoverMenu" parent="." instance=ExtResource("6_5v2fg")]
+
+[node name="ScanGun" type="Node3D" parent="."]
+transform = Transform3D(3.01114, 0, 0.289197, 0, 3.025, 0, -0.289197, 0, 3.01114, 0.579, 1.249, 1.416)
+script = ExtResource("7_8xxe2")
+ready_to_scan_pos = Vector3(0.579, 1.244, 0.751)
+offscreen_pos = Vector3(0.579, 0.5, 1.416)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ScanGun"]
+transform = Transform3D(0.1, 0, 0, 0, 0.0883144, 0.0469102, 0, -0.0469102, 0.0883144, 0.000696938, -0.0324004, 0.0655528)
+size = Vector3(0.260498, 0.862793, 0.400993)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="ScanGun"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.000513833, -0.00461929, 0.0412462)
+size = Vector3(0.488281, 0.300964, 0.754875)
+
+[node name="Border" type="CSGBox3D" parent="."]
+transform = Transform3D(1.715, 0, 0, 0, 1.715, 0, 0, 0, 1.715, 3.0335, -2.38419e-07, -0.190784)
+
+[node name="Area3D" type="Area3D" parent="Border"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Border/Area3D"]
+shape = SubResource("BoxShape3D_vdfb5")
+
+[node name="Screen" parent="." instance=ExtResource("8_asmoe")]
+transform = Transform3D(0.998368, -0.00187052, 0.0570858, 0.00155652, 0.999983, 0.00554488, -0.0570953, -0.00544697, 0.998354, 1.2292, 0.213354, -0.92695)
+
+[node name="Lenta" parent="." instance=ExtResource("9_0nro4")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, -1, 0, -4.37114e-08, -0.907726, -1.11286, -0.452818)
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

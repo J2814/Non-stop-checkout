@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3kk25hodi7rg"]
+
+[ext_resource type="PackedScene" uid="uid://cohk0crlao4kh" path="res://Art/3dstuff/fbx/Lenta.fbx" id="1_70mdq"]
+
+[node name="Lenta" instance=ExtResource("1_70mdq")]
