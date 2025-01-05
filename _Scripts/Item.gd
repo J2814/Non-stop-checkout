@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var item_name :String
-@export var price :float = 1.00;
+@export var price :float = 0.99;
 
 var objscanned = 0;
 
@@ -132,13 +132,15 @@ func MoveToInHand():
 func RemoveFromHand():
 	ChangeState(itemState.Scanned)
 	if !scored:
+		ScoreManager.good_item.emit(item_name, price)
 		ScoreManager.add_to_score(price)
 		scored = true
 	PrepareToDeath()
 
 func PrepareToDeath():
 	var tween = create_tween()
-	tween.tween_property(self, "position", Global.ScannedPosition, 0.15)
+	tween.tween_property(self, "position", self.position, 0.15)
+	tween.tween_property(self, "position", Global.ScannedPosition, 0.3)
 	tween.tween_property(self, "scale", 0.001 * Vector3(1,1,1), 0.3)
 	deathTimer.start()
 
@@ -193,4 +195,5 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		PrepareToDeath()
 		if !scored:
 			ScoreManager.add_to_score(-price)
+			ScoreManager.bad_item.emit(item_name, price)
 			scored = true

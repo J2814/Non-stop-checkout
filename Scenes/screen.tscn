@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b38e7g5edn68f"]
+[gd_scene load_steps=5 format=3 uid="uid://ca4sp6rynrtk7"]
 
 [ext_resource type="Script" path="res://_Scripts/screen.gd" id="1_ltt67"]
 
@@ -19,20 +19,78 @@ size = Vector2(0.7, 0.5)
 script = ExtResource("1_ltt67")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.998845, -0.0480261, -0.00144552, -1.87068e-10, 0.0300849, -0.999547, 0.0480479, 0.998393, 0.0300502, -0.0848626, 0.203228, -0.125386)
+transform = Transform3D(0.998845, -0.0480261, -0.00144552, -1.87068e-10, 0.0300849, -0.999547, 0.0480479, 0.998393, 0.0300502, 0, 0, 0)
 mesh = SubResource("PlaneMesh_ilhjj")
 
 [node name="SubViewport" type="SubViewport" parent="MeshInstance3D"]
 
-[node name="ColorRect" type="ColorRect" parent="MeshInstance3D/SubViewport"]
+[node name="Control" type="Control" parent="MeshInstance3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MeshInstance3D/SubViewport/Control"]
 offset_right = 512.0
 offset_bottom = 512.0
 color = Color(0.000667567, 0.00694572, 0.0105249, 1)
 
-[node name="Label" type="Label" parent="MeshInstance3D/SubViewport"]
-offset_left = 50.0
-offset_top = 100.0
-offset_right = 3403.0
-offset_bottom = 1191.0
-scale = Vector2(0.25, 0.25)
+[node name="TotalLabel" type="Label" parent="MeshInstance3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -212.0
+offset_right = 3147.0
+offset_bottom = 1973.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.095, 0.095)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 800
+text = "Total:
+1000 $"
+vertical_alignment = 1
+
+[node name="RecentItemGood" type="Label" parent="MeshInstance3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -512.0
+offset_right = 5328.0
+offset_bottom = 1673.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.095, 0.095)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 800
+text = "Cereal  +14$"
+vertical_alignment = 1
+
+[node name="RecentItemBad" type="Label" parent="MeshInstance3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -512.0
+offset_right = 5328.0
+offset_bottom = 1673.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.095, 0.095)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 800
+text = "Cereal  +14$"
+vertical_alignment = 1

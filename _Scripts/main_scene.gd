@@ -5,7 +5,7 @@ func _ready() -> void:
 	Global.TryToAssignCamera()
 	MenuLayer.visible = false
 	BGM.play()
-	ScoreManager.Gameover.connect(gameover_kostyl2)
+	
 
 func _process(delta: float) -> void:
 	if MenuLayer.visible:
@@ -20,14 +20,7 @@ func _input(event: InputEvent) -> void:
 		pause_game()
 		
 
-
 func pause_game():
 	MenuLayer.visible = true
 	get_tree().paused = true
 	
-#Мои попытки в сигналы, нихуя не понял
-
-
-func gameover_kostyl2():
-	print("nu umolyau zarabotai mraz")
-	get_tree().quit()
