@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1eyuc3fh4x3r"]
+[gd_scene load_steps=19 format=3 uid="uid://b1eyuc3fh4x3r"]
 
 [ext_resource type="Script" path="res://_Scripts/main_menu.gd" id="1_f42vm"]
 [ext_resource type="Texture2D" uid="uid://mi834pr2v71q" path="res://Art/Sprites/фон начальный без кнопок 1.png" id="2_530nq"]
@@ -8,6 +8,33 @@
 [ext_resource type="Texture2D" uid="uid://b2povnd58mf4c" path="res://Art/Sprites/кнопка эхит хвер.png" id="6_vwoo3"]
 [ext_resource type="Texture2D" uid="uid://dt8bovb2ahxsd" path="res://Art/Sprites/кнопка стилл сеттингс.png" id="7_rdt27"]
 [ext_resource type="Texture2D" uid="uid://deasu4mvqm7ht" path="res://Art/Sprites/кнопка ховер сеттингс.png" id="8_mrvsa"]
+[ext_resource type="Texture2D" uid="uid://cy3754ka4kfti" path="res://Art/Sprites/Rectangle 69.png" id="9_8h5k2"]
+[ext_resource type="Script" path="res://Scenes/settings_menu.gd" id="10_4i7ho"]
+[ext_resource type="Texture2D" uid="uid://cywhn0cf2oy22" path="res://Art/Sprites/ползунок.png" id="10_q8cq2"]
+[ext_resource type="Texture2D" uid="uid://b38qxbreg473b" path="res://Art/Sprites/Frame 513186.png" id="11_7e4pl"]
+[ext_resource type="Texture2D" uid="uid://cee2te316lv8c" path="res://Art/Sprites/cross.png" id="11_w3bgf"]
+[ext_resource type="Script" path="res://_Scripts/master_slider.gd" id="12_1iyyk"]
+[ext_resource type="Script" path="res://Scenes/music_slider.gd" id="13_r1yk2"]
+[ext_resource type="Script" path="res://Scenes/sfx_slider.gd" id="14_a1abm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ormfq"]
+content_margin_left = 16.0
+content_margin_top = 100.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+texture = ExtResource("9_8h5k2")
+modulate_color = Color(0.997015, 0.944804, 0.866167, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2n1db"]
+content_margin_left = 4.0
+content_margin_top = 100.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("11_7e4pl")
+texture_margin_top = 35.0
+texture_margin_bottom = 35.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="Main_menu" type="Control"]
 process_mode = 3
@@ -71,15 +98,104 @@ texture_hover = ExtResource("8_mrvsa")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="SettingsWindow" type="Window" parent="SettingsButton"]
-disable_3d = true
-title = "Settings"
-initial_position = 2
-size = Vector2i(600, 600)
+[node name="settings_menu" type="TextureRect" parent="SettingsButton"]
 visible = false
-exclusive = true
-unresizable = true
-popup_window = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.096
+anchor_top = -0.712
+anchor_right = 1.176
+anchor_bottom = 1.483
+offset_left = -0.793282
+offset_top = -0.449585
+offset_right = -0.0323486
+offset_bottom = -0.393616
+mouse_filter = 0
+texture = ExtResource("9_8h5k2")
+script = ExtResource("10_4i7ho")
+
+[node name="settings_exit_button" type="TextureButton" parent="SettingsButton/settings_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.863
+anchor_top = -0.021
+anchor_right = 1.01
+anchor_bottom = 0.173
+offset_left = 0.329956
+offset_top = -0.0509987
+offset_right = 1436.1
+offset_bottom = 989.563
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("11_w3bgf")
+ignore_texture_size = true
+flip_h = true
+
+[node name="MasterSlider" type="HSlider" parent="SettingsButton/settings_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.058
+anchor_top = 0.127
+anchor_right = 0.917
+anchor_bottom = 0.39
+offset_left = -0.220001
+offset_top = -0.263
+offset_right = -0.53009
+offset_bottom = 0.0899963
+theme_override_icons/grabber = ExtResource("10_q8cq2")
+theme_override_icons/grabber_highlight = ExtResource("10_q8cq2")
+theme_override_icons/grabber_disabled = ExtResource("10_q8cq2")
+theme_override_styles/slider = SubResource("StyleBoxTexture_ormfq")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_2n1db")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_2n1db")
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 0.001
+script = ExtResource("12_1iyyk")
+
+[node name="MusicSlider" type="HSlider" parent="SettingsButton/settings_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.054
+anchor_top = 0.395
+anchor_right = 0.913
+anchor_bottom = 0.659
+offset_left = 0.139999
+offset_top = 0.244995
+offset_right = -0.170044
+offset_bottom = 0.0289917
+theme_override_icons/grabber = ExtResource("10_q8cq2")
+theme_override_icons/grabber_highlight = ExtResource("10_q8cq2")
+theme_override_icons/grabber_disabled = ExtResource("10_q8cq2")
+theme_override_styles/slider = SubResource("StyleBoxTexture_ormfq")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_2n1db")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_2n1db")
+max_value = 1.0
+step = 0.001
+scrollable = false
+script = ExtResource("13_r1yk2")
+
+[node name="SFXSlider" type="HSlider" parent="SettingsButton/settings_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.668
+anchor_right = 0.915
+anchor_bottom = 0.931
+offset_left = -0.0400009
+offset_top = -0.0920105
+offset_right = -0.350037
+offset_bottom = 0.260986
+theme_override_icons/grabber = ExtResource("10_q8cq2")
+theme_override_icons/grabber_highlight = ExtResource("10_q8cq2")
+theme_override_icons/grabber_disabled = ExtResource("10_q8cq2")
+theme_override_styles/slider = SubResource("StyleBoxTexture_ormfq")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_2n1db")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_2n1db")
+max_value = 1.0
+step = 0.001
+scrollable = false
+script = ExtResource("14_a1abm")
 
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
@@ -87,4 +203,4 @@ popup_window = true
 [connection signal="pressed" from="CloseGame" to="." method="_on_close_game_pressed"]
 [connection signal="mouse_entered" from="SettingsButton" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="close_requested" from="SettingsButton/SettingsWindow" to="." method="_on_settings_window_close_requested"]
+[connection signal="pressed" from="SettingsButton/settings_menu/settings_exit_button" to="." method="_on_settings_exit_button_pressed"]

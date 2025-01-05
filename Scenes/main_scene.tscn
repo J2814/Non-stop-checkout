@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_74wqr"]
 [ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_e1j1i"]
 [ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_3stbu"]
-[ext_resource type="PackedScene" path="res://Scenes/screen.tscn" id="8_u0rvw"]
+[ext_resource type="PackedScene" uid="uid://b38e7g5edn68f" path="res://Scenes/screen.tscn" id="8_u0rvw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awk8t"]
 size = Vector3(12.0845, 0.597168, 4.95584)

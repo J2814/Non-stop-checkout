@@ -1,6 +1,9 @@
 extends Control
-@onready var setting_window = get_node("SettingsButton/SettingsWindow")
+@onready var music_slider = get_node("SettingsButton/settings_menu/MusicSlider")
+@onready var SFX_slider = get_node("SettingsButton/settings_menu/SFXSlider")
+@onready var master_slider = get_node("SettingsButton/settings_menu/MasterSlider")
 @onready var menu_music = get_node("/root/AudioManager/Ambient/MainMenuMusic")
+@onready var setting_exit = get_node("SettingsButton/settings_menu")
 func _ready() -> void:
 	menu_music.play()
 	pass
@@ -28,7 +31,8 @@ func _on_settings_button_mouse_entered() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	setting_window.show()
+	setting_exit.show()
 
-func _on_settings_window_close_requested() -> void:
-	setting_window.hide()
+
+func _on_settings_exit_button_pressed() -> void:
+	setting_exit.hide()
