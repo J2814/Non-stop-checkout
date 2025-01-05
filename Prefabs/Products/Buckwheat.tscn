@@ -6,23 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://cvl860q36vj04" path="res://Art/3dstuff/fbx/Buckwheat.blend" id="4_36s62"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
-size = Vector3(0.124878, 0.164429, 0.669678)
+size = Vector3(0.0203681, 0.0617218, 0.030426)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 2.49365)
 
 [node name="cereal item" type="Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 script = ExtResource("1_0kvy3")
 item_name = "Buckwheat"
 price = 9.9
 spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.281012, 0, 0, 0, 1, 0, 0, 0, 0.116861, 0.00164797, 0.415592, 0.00276773)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000628708, 0.00353232, -0.000686653)
 shape = SubResource("BoxShape3D_svf82")
 
 [node name="Barcode" type="Node3D" parent="."]

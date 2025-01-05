@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_w3etr"]
 [ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_5v2fg"]
 [ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_8xxe2"]
-[ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="8_asmoe"]
+[ext_resource type="PackedScene" uid="uid://b38e7g5edn68f" path="res://Scenes/screen.tscn" id="8_asmoe"]
 [ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="9_0nro4"]
 [ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_3wobm"]
 [ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="11_i1fye"]

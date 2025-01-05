@@ -3,7 +3,19 @@ extends Node3D
 #var item_scenes: Array = []
 
 @onready var item_scenes = [
-	preload("res://Prefabs/Products/cereal_item.tscn")
+	preload("res://Prefabs/Products/Beams.tscn"),
+	preload("res://Prefabs/Products/Beef.tscn"),
+	preload("res://Prefabs/Products/Buckwheat.tscn"),
+	preload("res://Prefabs/Products/cereal_item.tscn"),
+	preload("res://Prefabs/Products/Fish.tscn"),
+	preload("res://Prefabs/Products/Melon_item.tscn"),
+	preload("res://Prefabs/Products/Milk.tscn"),
+	preload("res://Prefabs/Products/Mussels.tscn"),
+	preload("res://Prefabs/Products/Nutella.tscn"),
+	preload("res://Prefabs/Products/Peanut_butter.tscn"),
+	preload("res://Prefabs/Products/Rise.tscn"),
+	preload("res://Prefabs/Products/Water.tscn"),
+	preload("res://Prefabs/Products/Watermelon_item.tscn")
 ]
 @onready var debugLabel :Label = $Control/Label
 @onready var timer :Timer = $Timer

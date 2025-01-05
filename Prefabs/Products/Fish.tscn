@@ -6,23 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://6hrqt51ond0v" path="res://Art/3dstuff/fbx/Fish.blend" id="4_dj2gv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
-size = Vector3(0.124878, 0.887695, 0.669678)
+size = Vector3(0.149384, 0.026001, 0.0804444)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
-size = Vector3(8.31852, 5.01264, 2.46338)
+size = Vector3(8.31852, 5.01264, 1.02857)
 
 [node name="cereal item" type="Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("1_bgycl")
 item_name = "Canned fish"
 price = 12.49
 spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.21579, 0, 0, 0, 0.0384651, 0, 0, 0, 0.109589, 0.00164797, 0.408491, -0.000610348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000426155, 0, 0)
 shape = SubResource("BoxShape3D_svf82")
 
 [node name="Barcode" type="Node3D" parent="."]
@@ -33,7 +33,7 @@ script = ExtResource("3_lfeuu")
 transform = Transform3D(-1.74846e-09, 0, -0.04, 0, 0.04, 0, 0.04, 0, -1.74846e-09, -0.196066, 0, 0.00724775)
 
 [node name="collisionshape" type="CollisionShape3D" parent="Barcode/Area3D"]
-transform = Transform3D(1, -2.10026e-26, 3.55265e-15, 3.23117e-27, 1, 0, -6.21705e-15, 0, 1, -0.107634, 0.475076, 1.01617)
+transform = Transform3D(1, -2.10026e-26, 3.55265e-15, -5.25066e-27, 1, -7.10543e-15, -6.21705e-15, 7.10543e-15, 1, -0.107634, 0.475076, 0.298763)
 shape = SubResource("BoxShape3D_fnang")
 
 [node name="Sprite3D" type="Sprite3D" parent="Barcode"]
