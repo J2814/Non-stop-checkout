@@ -1,106 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1eyuc3fh4x3r"]
+[gd_scene load_steps=9 format=3 uid="uid://b1eyuc3fh4x3r"]
 
 [ext_resource type="Script" path="res://_Scripts/main_menu.gd" id="1_f42vm"]
-[ext_resource type="Texture2D" uid="uid://28d3gqvvwbw" path="res://Art/Sprites/test_menubg.jpg" id="1_h0gpu"]
+[ext_resource type="Texture2D" uid="uid://mi834pr2v71q" path="res://Art/Sprites/фон начальный без кнопок 1.png" id="2_530nq"]
+[ext_resource type="Texture2D" uid="uid://4aj1ffji8o4t" path="res://Art/Sprites/кнопка стилл плей.png" id="3_tbhux"]
+[ext_resource type="Texture2D" uid="uid://bnujy25ptg14t" path="res://Art/Sprites/кнопка стилл эхит.png" id="4_d00m4"]
+[ext_resource type="Texture2D" uid="uid://by5e7ekrmy1ca" path="res://Art/Sprites/кнопка ховер плей.png" id="5_1thdw"]
+[ext_resource type="Texture2D" uid="uid://b2povnd58mf4c" path="res://Art/Sprites/кнопка эхит хвер.png" id="6_vwoo3"]
+[ext_resource type="Texture2D" uid="uid://dt8bovb2ahxsd" path="res://Art/Sprites/кнопка стилл сеттингс.png" id="7_rdt27"]
+[ext_resource type="Texture2D" uid="uid://deasu4mvqm7ht" path="res://Art/Sprites/кнопка ховер сеттингс.png" id="8_mrvsa"]
 
 [node name="Main_menu" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -0.384033
+offset_bottom = -0.216064
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_f42vm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576.43, 373)
-scale = Vector2(1.15114, 1.06411)
-texture = ExtResource("1_h0gpu")
-region_rect = Rect2(-10.4103, -0.282082, 999.692, 680.102)
-
-[node name="Play" type="Button" parent="."]
+[node name="mainMenuBG" type="TextureRect" parent="."]
+show_behind_parent = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = -248.0
-offset_right = 210.0
-offset_bottom = -148.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_530nq")
 
-[node name="ColorRect" type="ColorRect" parent="Play"]
+[node name="Play" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-color = Color(0.329158, 0.329158, 0.329158, 1)
+offset_left = 1073.0
+offset_top = 464.0
+offset_right = 1766.0
+offset_bottom = 893.0
+texture_normal = ExtResource("3_tbhux")
+texture_pressed = ExtResource("3_tbhux")
+texture_hover = ExtResource("5_1thdw")
 
-[node name="Label" type="Label" parent="Play"]
-top_level = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.339
-anchor_top = 0.122
-anchor_right = 0.681
-anchor_bottom = 0.267
-offset_left = 122.472
-offset_top = -7.05601
-offset_right = 2728.49
-offset_bottom = 898.984
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.1, 0.1)
-theme_override_font_sizes/font_size = 700
-text = "Play"
-
-[node name="CloseGame" type="Button" parent="."]
-process_mode = 3
-top_level = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -8.0
-offset_right = 161.0
-offset_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
-[node name="ColorRect" type="ColorRect" parent="CloseGame"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-color = Color(0.329158, 0.329158, 0.329158, 1)
-
-[node name="Label" type="Label" parent="CloseGame"]
+[node name="CloseGame" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 5.0
-offset_right = 3044.0
-offset_bottom = 995.0
-scale = Vector2(0.1, 0.1)
-theme_override_font_sizes/font_size = 700
-text = "EXIT"
+offset_left = 136.0
+offset_top = 718.0
+offset_right = 635.0
+offset_bottom = 949.0
+texture_normal = ExtResource("4_d00m4")
+texture_pressed = ExtResource("4_d00m4")
+texture_hover = ExtResource("6_vwoo3")
 
+[node name="SettingsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 372.0
+offset_right = 995.0
+offset_bottom = 614.0
+texture_normal = ExtResource("7_rdt27")
+texture_hover = ExtResource("8_mrvsa")
+
+[node name="SettingsWindow" type="Window" parent="SettingsButton"]
+disable_3d = true
+title = "Settings"
+initial_position = 2
+size = Vector2i(600, 600)
+exclusive = true
+unresizable = true
+popup_window = true
+
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="CloseGame" to="." method="_on_close_game_mouse_entered"]
 [connection signal="pressed" from="CloseGame" to="." method="_on_close_game_pressed"]
+[connection signal="mouse_entered" from="SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="close_requested" from="SettingsButton/SettingsWindow" to="." method="_on_settings_window_close_requested"]

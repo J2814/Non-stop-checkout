@@ -1,5 +1,5 @@
 extends Node
-var objectcoeff = objscanneddelt
+var objectcoeff = objscanneddelt%5
 var objscanneddelt :int = 0
 var objscanned = 0
 @export var diff = 0
@@ -16,10 +16,10 @@ var HandOccupied :bool
 @export var camera :Camera3D
 
 var Rotation_speed = 0.4
-
 signal scan_barcode(pos :Vector3)
 signal take_item
 signal gameover
+
 
 func _init() -> void:
 	pass
@@ -31,3 +31,9 @@ func TryToAssignCamera():
 func _ready() -> void:
 	TryToAssignCamera()
 	pass
+	
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout
+	
+	
+	

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://xniatleo40ys"]
+[gd_scene load_steps=7 format=3 uid="uid://xniatleo40ys"]
 
 [ext_resource type="Script" path="res://_Scripts/audio_manager.gd" id="1_vogan"]
 [ext_resource type="AudioStream" uid="uid://cl6c8vmw6t2kl" path="res://Art/Audio/Music/It-Came-Upon-a-Midnight-Clear-chosic.com_.mp3" id="2_o2nny"]
 [ext_resource type="AudioStream" uid="uid://43dt8bs86bfb" path="res://Art/Audio/Sounds/scan_sound.mp3" id="3_nbsgv"]
 [ext_resource type="AudioStream" uid="uid://bdqfyihed1nty" path="res://Art/Audio/Sounds/ambient.mp3" id="3_noq4o"]
+[ext_resource type="AudioStream" uid="uid://beegkjdeed3pu" path="res://Art/Audio/Sounds/buttonhover.wav" id="5_drwxh"]
+[ext_resource type="AudioStream" uid="uid://dauqkn077bpcy" path="res://Art/Audio/Sounds/buttonclick.wav" id="6_1dq5g"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
@@ -23,3 +25,9 @@ stream = ExtResource("3_noq4o")
 
 [node name="Scan" type="AudioStreamPlayer" parent="InteractionSounds"]
 stream = ExtResource("3_nbsgv")
+
+[node name="Hover" type="AudioStreamPlayer" parent="InteractionSounds"]
+stream = ExtResource("5_drwxh")
+
+[node name="Click" type="AudioStreamPlayer" parent="InteractionSounds"]
+stream = ExtResource("6_1dq5g")

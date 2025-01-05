@@ -21,6 +21,12 @@ Global="*res://_Scripts/Global.gd"
 AudioManager="*res://Scenes/audio_manager.tscn"
 ScoreManager="*res://_Scripts/ScoreManager.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
 [editor]
 
 movie_writer/movie_file="D:/Godot stuff/GODOT 4.3/Non-stop-checkout/recs/movie.avi"

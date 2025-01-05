@@ -5,6 +5,7 @@ func _ready() -> void:
 	Global.TryToAssignCamera()
 	MenuLayer.visible = false
 	BGM.play()
+	ScoreManager.Gameover.connect(gameover_kostyl2)
 
 func _process(delta: float) -> void:
 	if MenuLayer.visible:
@@ -25,9 +26,8 @@ func pause_game():
 	get_tree().paused = true
 	
 #Мои попытки в сигналы, нихуя не понял
-func game_over():
-	$"/root/ScoreManager".connect("Gameover", lose_screen)
 
-func lose_screen():
-	AudioManager.Beep.play()
-	get_tree().quit
+
+func gameover_kostyl2():
+	print("nu umolyau zarabotai mraz")
+	get_tree().quit()

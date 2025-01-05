@@ -1,9 +1,9 @@
 extends Node3D
 
 @export var item_name :String
-@export var price :float = 0.99;
+@export var price :float = 1.00;
 
-var objscanned = 1;
+var objscanned = 0;
 
 enum itemState {InHand, Scanned, NotScanned}
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b38e7g5edn68f"]
 
-[ext_resource type="Script" path="res://screen.gd" id="1_ltt67"]
+[ext_resource type="Script" path="res://_Scripts/screen.gd" id="1_ltt67"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vb5pp"]
 viewport_path = NodePath("MeshInstance3D/SubViewport")
@@ -13,7 +13,7 @@ metallic_specular = 0.0
 [sub_resource type="PlaneMesh" id="PlaneMesh_ilhjj"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_2gp44")
-size = Vector2(1, 1)
+size = Vector2(0.7, 0.5)
 
 [node name="Screen" type="Node3D"]
 script = ExtResource("1_ltt67")
@@ -30,9 +30,9 @@ offset_bottom = 512.0
 color = Color(0.000667567, 0.00694572, 0.0105249, 1)
 
 [node name="Label" type="Label" parent="MeshInstance3D/SubViewport"]
-offset_left = 100.0
+offset_left = 50.0
 offset_top = 100.0
-offset_right = 3453.0
+offset_right = 3403.0
 offset_bottom = 1191.0
 scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 800
