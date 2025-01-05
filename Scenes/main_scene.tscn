@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cjfxxkiddbmbt"]
+[gd_scene load_steps=19 format=3 uid="uid://cjfxxkiddbmbt"]
 
 [ext_resource type="Script" path="res://_Scripts/main_scene.gd" id="1_fdosp"]
 [ext_resource type="Shader" path="res://Art/RetroPost-Processing.gdshader" id="1_ou2u1"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://xfjfqlhrp8cg" path="res://Art/3dstuff/fbx/Lenta.fbx" id="2_ulyct"]
 [ext_resource type="PackedScene" uid="uid://xniatleo40ys" path="res://Scenes/audio_manager.tscn" id="3_068bj"]
 [ext_resource type="Script" path="res://_Scripts/pause_node.gd" id="5_74wqr"]
+[ext_resource type="PackedScene" uid="uid://ji6gcnrcgway" path="res://Prefabs/Products/cereal_item.tscn" id="5_nlw48"]
 [ext_resource type="PackedScene" uid="uid://d2f3n7ryypk83" path="res://Scenes/menu.tscn" id="6_e1j1i"]
 [ext_resource type="Script" path="res://_Scripts/ScanGun.gd" id="7_3stbu"]
-[ext_resource type="PackedScene" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
+[ext_resource type="PackedScene" uid="uid://c8hp58uty72l5" path="res://Scenes/GameoverMenu.tscn" id="7_y3t0d"]
 [ext_resource type="PackedScene" uid="uid://ca4sp6rynrtk7" path="res://Scenes/screen.tscn" id="8_u0rvw"]
 [ext_resource type="PackedScene" uid="uid://beselpu8e0usb" path="res://Art/3dstuff/fbx/Scaner.fbx" id="9_eselk"]
 [ext_resource type="PackedScene" uid="uid://dqm6dtfgwjnju" path="res://Art/3dstuff/fbx/PC.fbx" id="10_khucr"]
@@ -103,14 +104,30 @@ light_energy = 0.536
 transform = Transform3D(-0.689353, -0.684577, 0.236952, 0.351695, -0.0303012, 0.935624, -0.633327, 0.72831, 0.26165, 1.13562, 3.43839, 3.1234)
 visible = false
 
+[node name="cereal item" parent="ViewPort/MainScene" instance=ExtResource("5_nlw48")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.710686, 0.37529, 0)
+
 [node name="Spawner" type="Node3D" parent="ViewPort/MainScene"]
 script = ExtResource("2_u3jyf")
-spawn_point_x = -5.0
+spawn_point_x = -1.0
 spawn_point_y = 1.0
 spawn_point_z_range = Vector2(-0.5, 0.1)
 
 [node name="Timer" type="Timer" parent="ViewPort/MainScene/Spawner"]
 wait_time = 2.0
+
+[node name="Control" type="Control" parent="ViewPort/MainScene/Spawner"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ViewPort/MainScene/Spawner/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+text = "ssdfa;slkdjfasdываааааааааf"
 
 [node name="AudioManager" parent="ViewPort/MainScene" instance=ExtResource("3_068bj")]
 

@@ -78,7 +78,7 @@ func MoveOnConveyorBelt(delta: float):
 	position.x += (Global.CurrentSpeed + Global.diff/2) * delta
 
 func GoToGround(delta: float):
-	position.y -= 10 * delta
+	position.y -= delta
 
 
 func RotateInHand(deltaTime):
