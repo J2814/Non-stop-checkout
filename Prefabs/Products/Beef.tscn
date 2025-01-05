@@ -1,45 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://bib4xj7hrnckj"]
+[gd_scene load_steps=7 format=3 uid="uid://cjhc1hat7lv1j"]
 
-[ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_386g1"]
-[ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="3_jn7h6"]
-[ext_resource type="PackedScene" uid="uid://b20mkd64nlfxv" path="res://Art/3dstuff/fbx/WaterMelone.blend" id="4_42ild"]
-[ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="4_n6dvr"]
+[ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_ioo0c"]
+[ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="2_5ahjx"]
+[ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="3_oo1f4"]
+[ext_resource type="PackedScene" uid="uid://7wr2n71r2jkw" path="res://Art/3dstuff/fbx/Beef.blend" id="4_vx0kp"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p4w3f"]
-radius = 0.232636
-height = 0.595148
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wgyg1"]
+height = 0.133554
+radius = 0.0483467
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
-size = Vector3(8.31852, 5.01264, 0.980469)
+size = Vector3(8.31852, 5.01264, 2.5759)
 
 [node name="cereal item" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-script = ExtResource("1_386g1")
-item_name = "Watermelon"
-price = 8.99
+script = ExtResource("1_ioo0c")
+item_name = "Beef"
+price = 8.23
 spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.147637, 0.989042, 0, -0.989042, 0.147637, 0.0307006, 0.370236, -0.0349611)
-shape = SubResource("CapsuleShape3D_p4w3f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00164797, 0.403313, -0.000610348)
+shape = SubResource("CylinderShape3D_wgyg1")
 
 [node name="Barcode" type="Node3D" parent="."]
-transform = Transform3D(-0.0899089, -0.00404972, 1.00434e-08, -0.00404972, 0.0899088, 4.52381e-10, -7.86805e-09, 0, -0.115, 0.0824647, 8.56146e-05, -0.00917695)
-script = ExtResource("3_jn7h6")
+transform = Transform3D(-1.5299e-09, 0, 0.045, 0.035, -1.5299e-09, 1.96701e-09, 1.5299e-09, 0.035, -7.38913e-17, 1.22861e-05, -0.0165841, 0.00171001)
+script = ExtResource("2_5ahjx")
 
 [node name="Area3D" type="Area3D" parent="Barcode"]
 transform = Transform3D(-1.74846e-09, 0, -0.04, 0, 0.04, 0, 0.04, 0, -1.74846e-09, -0.196066, 0, 0.00724775)
 
 [node name="collisionshape" type="CollisionShape3D" parent="Barcode/Area3D"]
-transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -6.21725e-15, 0, 1, -0.107634, 0.475076, 0.708687)
+transform = Transform3D(1, 0, 6.21725e-15, -4.23516e-22, 1, 0, -6.21725e-15, 0, 1, -0.107634, 0.475076, 0.889193)
 shape = SubResource("BoxShape3D_fnang")
 
 [node name="Sprite3D" type="Sprite3D" parent="Barcode"]
 transform = Transform3D(-1.5299e-09, 0, -0.035, 0, 0.035, 0, 0.035, 0, -1.5299e-09, -0.196066, 0, 0.00724775)
-texture = ExtResource("4_n6dvr")
+texture = ExtResource("3_oo1f4")
 
 [node name="BarcodeAnimTimer" type="Timer" parent="Barcode"]
 wait_time = 0.3
@@ -48,7 +48,7 @@ autostart = true
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="WaterMelone" parent="." instance=ExtResource("4_42ild")]
+[node name="Beef" parent="." instance=ExtResource("4_vx0kp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

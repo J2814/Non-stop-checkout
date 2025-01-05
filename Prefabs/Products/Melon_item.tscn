@@ -1,34 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://bib4xj7hrnckj"]
+[gd_scene load_steps=7 format=3 uid="uid://cufkqc4q0yl0a"]
 
-[ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_386g1"]
-[ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="3_jn7h6"]
-[ext_resource type="PackedScene" uid="uid://b20mkd64nlfxv" path="res://Art/3dstuff/fbx/WaterMelone.blend" id="4_42ild"]
-[ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="4_n6dvr"]
+[ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_0vo1w"]
+[ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="2_t26d3"]
+[ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="3_nhaeh"]
+[ext_resource type="PackedScene" uid="uid://df8la5tdksv6g" path="res://Art/3dstuff/fbx/Melone.blend" id="4_85x2x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p4w3f"]
-radius = 0.232636
-height = 0.595148
+radius = 0.216844
+height = 0.515251
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
 size = Vector3(8.31852, 5.01264, 0.980469)
 
 [node name="cereal item" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-script = ExtResource("1_386g1")
-item_name = "Watermelon"
-price = 8.99
+script = ExtResource("1_0vo1w")
+item_name = "Melon"
+price = 4.99
 spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.147637, 0.989042, 0, -0.989042, 0.147637, 0.0307006, 0.370236, -0.0349611)
+transform = Transform3D(0.75, 0, 0, 0, 0.110728, 0.741781, 0, -0.741781, 0.110728, 0.0144051, 0.393356, -0.0268212)
 shape = SubResource("CapsuleShape3D_p4w3f")
 
 [node name="Barcode" type="Node3D" parent="."]
-transform = Transform3D(-0.0899089, -0.00404972, 1.00434e-08, -0.00404972, 0.0899088, 4.52381e-10, -7.86805e-09, 0, -0.115, 0.0824647, 8.56146e-05, -0.00917695)
-script = ExtResource("3_jn7h6")
+transform = Transform3D(-0.0899089, -0.00404972, 1.00434e-08, -0.00404972, 0.0899088, 4.52381e-10, -7.86805e-09, 0, -0.115, 0.0526621, 8.56146e-05, -0.00917695)
+script = ExtResource("2_t26d3")
 
 [node name="Area3D" type="Area3D" parent="Barcode"]
 transform = Transform3D(-1.74846e-09, 0, -0.04, 0, 0.04, 0, 0.04, 0, -1.74846e-09, -0.196066, 0, 0.00724775)
@@ -39,7 +39,7 @@ shape = SubResource("BoxShape3D_fnang")
 
 [node name="Sprite3D" type="Sprite3D" parent="Barcode"]
 transform = Transform3D(-1.5299e-09, 0, -0.035, 0, 0.035, 0, 0.035, 0, -1.5299e-09, -0.196066, 0, 0.00724775)
-texture = ExtResource("4_n6dvr")
+texture = ExtResource("3_nhaeh")
 
 [node name="BarcodeAnimTimer" type="Timer" parent="Barcode"]
 wait_time = 0.3
@@ -48,8 +48,8 @@ autostart = true
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="WaterMelone" parent="." instance=ExtResource("4_42ild")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="Melone" parent="." instance=ExtResource("4_85x2x")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="scanned" from="Barcode" to="." method="_on_barcode_scanned"]

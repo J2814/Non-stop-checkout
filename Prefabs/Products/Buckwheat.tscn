@@ -1,45 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://bib4xj7hrnckj"]
+[gd_scene load_steps=7 format=3 uid="uid://buyawtltwj43c"]
 
-[ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_386g1"]
-[ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="3_jn7h6"]
-[ext_resource type="PackedScene" uid="uid://b20mkd64nlfxv" path="res://Art/3dstuff/fbx/WaterMelone.blend" id="4_42ild"]
-[ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="4_n6dvr"]
+[ext_resource type="Script" path="res://_Scripts/Item.gd" id="1_0kvy3"]
+[ext_resource type="Script" path="res://_Scripts/Barcode.gd" id="2_1x2cl"]
+[ext_resource type="Texture2D" uid="uid://cl65s6vt6u05a" path="res://Art/Sprites/photo_2025-01-05_18-11-18.jpg" id="3_gaabx"]
+[ext_resource type="PackedScene" uid="uid://cvl860q36vj04" path="res://Art/3dstuff/fbx/Buckwheat.blend" id="4_36s62"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p4w3f"]
-radius = 0.232636
-height = 0.595148
+[sub_resource type="BoxShape3D" id="BoxShape3D_svf82"]
+size = Vector3(0.124878, 0.164429, 0.669678)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnang"]
-size = Vector3(8.31852, 5.01264, 0.980469)
+size = Vector3(8.31852, 5.01264, 2.49365)
 
 [node name="cereal item" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-script = ExtResource("1_386g1")
-item_name = "Watermelon"
-price = 8.99
+script = ExtResource("1_0kvy3")
+item_name = "Buckwheat"
+price = 9.9
 spawn_rotations = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 180), Vector3(0, 0, -90), Vector3(0, 0, 90), Vector3(90, 0, 0), Vector3(-90, 0, 0)])
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, -0.15, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.147637, 0.989042, 0, -0.989042, 0.147637, 0.0307006, 0.370236, -0.0349611)
-shape = SubResource("CapsuleShape3D_p4w3f")
+transform = Transform3D(0.281012, 0, 0, 0, 1, 0, 0, 0, 0.116861, 0.00164797, 0.415592, 0.00276773)
+shape = SubResource("BoxShape3D_svf82")
 
 [node name="Barcode" type="Node3D" parent="."]
-transform = Transform3D(-0.0899089, -0.00404972, 1.00434e-08, -0.00404972, 0.0899088, 4.52381e-10, -7.86805e-09, 0, -0.115, 0.0824647, 8.56146e-05, -0.00917695)
-script = ExtResource("3_jn7h6")
+transform = Transform3D(0.03451, 0.00439451, 0.00548585, -0.00380933, -0.000485083, 0.0496981, 0.0044212, -0.0347196, -2.18557e-09, -0.00491561, -0.00530606, 0.000323323)
+script = ExtResource("2_1x2cl")
 
 [node name="Area3D" type="Area3D" parent="Barcode"]
 transform = Transform3D(-1.74846e-09, 0, -0.04, 0, 0.04, 0, 0.04, 0, -1.74846e-09, -0.196066, 0, 0.00724775)
 
 [node name="collisionshape" type="CollisionShape3D" parent="Barcode/Area3D"]
-transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -6.21725e-15, 0, 1, -0.107634, 0.475076, 0.708687)
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -6.21725e-15, 0, 1, -0.107634, 0.475076, 0.907169)
 shape = SubResource("BoxShape3D_fnang")
 
 [node name="Sprite3D" type="Sprite3D" parent="Barcode"]
 transform = Transform3D(-1.5299e-09, 0, -0.035, 0, 0.035, 0, 0.035, 0, -1.5299e-09, -0.196066, 0, 0.00724775)
-texture = ExtResource("4_n6dvr")
+texture = ExtResource("3_gaabx")
 
 [node name="BarcodeAnimTimer" type="Timer" parent="Barcode"]
 wait_time = 0.3
@@ -48,7 +47,7 @@ autostart = true
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="WaterMelone" parent="." instance=ExtResource("4_42ild")]
+[node name="Buckwheat" parent="." instance=ExtResource("4_36s62")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
