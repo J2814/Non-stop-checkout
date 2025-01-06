@@ -89,6 +89,7 @@ fov = 65.6
 script = ExtResource("2_o81kw")
 
 [node name="Timer" type="Timer" parent="ViewPort/MainScene/Camera3D"]
+wait_time = 3.0
 one_shot = true
 autostart = true
 

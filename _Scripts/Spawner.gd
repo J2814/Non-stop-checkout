@@ -20,7 +20,7 @@ extends Node3D
 @onready var debugLabel :Label = $Control/Label
 @onready var timer :Timer = $Timer
 var allowSpawn: bool = false
-@export var timerstages = [3.0, 2.6, 2.4, 2.2, 2.0, 1.8, 1.6]
+@export var timerstages = [3.0, 2.6, 2.4, 2.2, 2.0, 1.8, 1.6, 0.6]
 @export var spawn_point_x :float
 @export var spawn_point_y :float
 @export var spawn_point_z_range :Vector2
@@ -79,7 +79,7 @@ func difficulty():
 	#print("шзнх")
 	if objectcoeff == 1:
 		Global.diff +=1
-		Global.diff = clamp(Global.diff, 0, 6)
+		Global.diff = clamp(Global.diff, 0, 7)
 		objectcoeff = 0
 		Global.objscanneddelt = 0
 		print(objectcoeff)
